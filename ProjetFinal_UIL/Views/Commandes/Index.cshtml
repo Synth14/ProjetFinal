@@ -1,0 +1,73 @@
+﻿@model IEnumerable<ProjetFinal_DAL.Commande>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gestion des commandes</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NbPlaceDemande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voyage.NbPlaceDisponible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCommande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Solvabilite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EtatCommande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCommande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voyage.Titre)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbPlaceDemande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voyage.NbPlaceDisponible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCommande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Solvabilite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtatCommande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCommande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Voyage.Titre)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.IdCommande })
+            </td>
+        </tr>
+    }
+
+</table>

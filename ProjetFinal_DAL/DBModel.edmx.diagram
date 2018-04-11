@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3f3370166d6a4faf8a52406d9a600e42" Name="Diagram1">
+        <EntityTypeShape EntityType="FinalDBModel.Client" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDBModel.Commande" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDBModel.Continent" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDBModel.Pay" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDBModel.Region" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDBModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalDBModel.Voyage" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="FinalDBModel.FK_Commande_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDBModel.FK_Commande_Voyage" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDBModel.FK_Pays_Continent" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDBModel.FK_Voyage_Continent" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalDBModel.FK_Regions_Pays" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
