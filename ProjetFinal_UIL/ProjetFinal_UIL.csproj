@@ -204,9 +204,24 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\PhotoVoyage\Bengale-Inde.jpg" />
+    <Content Include="Content\PhotoVoyage\Cap_Vert-Senegal.JPG" />
+    <Content Include="Content\PhotoVoyage\Chiwawa-mexique.jpg" />
+    <Content Include="Content\PhotoVoyage\Galice-Espagne.jpg" />
+    <Content Include="Content\PhotoVoyage\Hokkaido-Japon.jpg" />
     <Content Include="Content\img\08.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PhotoVoyage\marrakech-maroc.jpg" />
+    <Content Include="Content\PhotoVoyage\nauru.jpg" />
+    <Content Include="Content\PhotoVoyage\Nevada-Amerique_ml.jpg" />
+    <Content Include="Content\PhotoVoyage\Perros-guirec-Bretagne.jpg" />
+    <Content Include="Content\PhotoVoyage\Phuket-Thailande.jpg" />
+    <Content Include="Content\PhotoVoyage\Prairies-Canada.jpg" />
+    <Content Include="Content\PhotoVoyage\Sardaigne-Italie.jpg" />
+    <Content Include="Content\PhotoVoyage\Tasmanie-Australie.jpg" />
+    <Content Include="Content\PhotoVoyage\tunisie-monastir.jpg" />
+    <Content Include="Content\PhotoVoyage\îles-Fidji.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
