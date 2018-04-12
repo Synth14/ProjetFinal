@@ -29,12 +29,18 @@ namespace ProjetFinal_BOL
             return listeA;
         }
 
-        public ArrayList GetCommandes()
+        public ArrayList GetAllCommandes()
         {
-            ArrayList alisteCommande = Repo.GetCommandes();
-            // ..
-            return alisteCommande;
+            ArrayList listeC = Repo.GetAllCommande();
+            return listeC;
         }
+
+        //public ArrayList GetCommandes()
+        //{
+        //    ArrayList alisteCommande = Repo.GetCommandes();
+        //    // ..
+        //    return alisteCommande;
+        //}
 
         public ArrayList GetAllPays([FromUri] long IdC)
         {
