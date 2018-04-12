@@ -56,13 +56,27 @@ namespace ProjetFinal_DAL
             return listeAl;
         }
 
-        public ArrayList GetClients()
+        //public ArrayList GetClients()
+        //{
+        //    var liste = Context.Clients.ToList();
+        //    // ...
+        //    ArrayList listeAlClient = new ArrayList();
+        //    //...
+        //    return listeAlClient;
+        //}
+
+        public ArrayList GetAllClient()
         {
             var liste = Context.Clients.ToList();
-            // ...
-            ArrayList listeAlClient = new ArrayList();
-            //...
-            return listeAlClient;
+            ArrayList listeClient = new ArrayList();
+            for (int i = 0; i < liste.Count; i++)
+            {
+                listeClient.Add(liste[i].Nom);
+                listeClient.Add(liste[i].Prenom);
+                listeClient.Add(liste[i].Mail);
+            }
+
+            return (listeClient);
         }
     }
 }

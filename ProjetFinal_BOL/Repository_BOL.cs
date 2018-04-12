@@ -53,12 +53,18 @@ namespace ProjetFinal_BOL
             return listeB;
         }
 
-        public ArrayList GetClients()
+        public ArrayList GetAllClients()
         {
-            ArrayList alisteClient = Repo.GetClients();
-            // ..
-            return alisteClient;
+            ArrayList listeC = Repo.GetAllClient();
+            return listeC;
         }
+
+        //public ArrayList GetClients()
+        //{
+        //    ArrayList alisteClient = Repo.GetClients();
+        //    // ..
+        //    return alisteClient;
+        //}
 
         public ArrayList GetAllRegions([FromUri] long IdC, [FromUri] long IdP)
         {

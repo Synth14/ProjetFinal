@@ -44,11 +44,20 @@ namespace ProjetFinal_UIL.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            ArrayList al = Repo.GetClients();
-            List<Client_UIL> clients = new List<Client_UIL>();
-            // ..
-            //var commandes = db.Commandes.Include(c => c.Client).Include(c => c.Voyage);
-            return View(clients);
+            ArrayList listeClients = Repo.GetAllClients();
+            List<Client_UIL> listeDeClients = new List<Client_UIL>();
+            for (int i = 0; i < listeClients.Count; i += 3)
+            {
+                listeDeClients.Add(
+                    new Client_UIL
+                    {
+                        Nom = listeClients[i].ToString(),
+                        Prenom = listeClients[i+1].ToString(),
+                        Mail = listeClients[i+2].ToString(),
+                        //IdContinent = int.Parse(listeDeClients[i + 1].ToString())
+                    });
+            }
+            return View(listeDeClients);
         }
 
 
