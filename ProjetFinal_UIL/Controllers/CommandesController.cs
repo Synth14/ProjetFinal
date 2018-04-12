@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,19 +7,25 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ProjetFinal_BOL;
 using ProjetFinal_DAL;
+using ProjetFinal_UIL.Models;
 
 namespace ProjetFinal_UIL.Controllers
 {
     public class CommandesController : Controller
     {
-        private FinalDBContext db = new FinalDBContext();
+        //private FinalDBContext db = new FinalDBContext();
+        private Repository_BOL Repo = new Repository_BOL();
         [Authorize]
         // GET: Commandes
         public ActionResult Index()
         {
-            var commandes = db.Commandes.Include(c => c.Client).Include(c => c.Voyage);
-            return View(commandes.ToList());
+            ArrayList al = Repo.GetCommandes();
+            List<Commande> commandes = new List<Commande>();
+            // ..
+            //var commandes = db.Commandes.Include(c => c.Client).Include(c => c.Voyage);
+            return View(commandes);
         }
         [Authorize]
         // GET: Commandes/Edit/5

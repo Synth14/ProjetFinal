@@ -12,30 +12,38 @@ namespace ProjetFinal_BOL
 {
     public class Repository_BOL
     {
-        private Repository_DAL Repo = new Repository_DAL(); 
+        private Repository_DAL Repo = new Repository_DAL();
         public ArrayList GetAllContinents()
         {
             ArrayList listeA = Repo.GetAllContinents();
-            List<Continent_BOL> listeC = new List<Continent_BOL>();
-            for (int i = 0; i < listeA.Count; i += 2)
-            {
-                listeC.Add(
-                    new Continent_BOL
-                    {
-                        IdContinent = int.Parse(listeA[i].ToString()),
-                        Nom = listeA[i + 1].ToString()
-                    });
-            }
+            //List<Continent_BOL> listeC = new List<Continent_BOL>();
+            //for (int i = 0; i < listeA.Count; i += 2)
+            //{
+            //    listeC.Add(
+            //        new Continent_BOL
+            //        {
+            //            IdContinent = int.Parse(listeA[i].ToString()),
+            //            Nom = listeA[i + 1].ToString()
+            //        });
+            //}
             return listeA;
         }
+
+        public ArrayList GetCommandes()
+        {
+            ArrayList al = Repo.GetCommandes();
+            // ..
+            return al;
+        }
+
         public ArrayList GetAllPays([FromUri] long IdC)
         {
             ArrayList listeB = Repo.GetPaysByContinents(IdC);
-            List<Pay> listeP = new List<Pay>();
+            List<Pays_BOL> listeP = new List<Pays_BOL>();
             for (int i = 0; i < listeB.Count; i += 3)
             {
                 listeP.Add(
-                    new Pay
+                    new Pays_BOL
                     {
                         IdContinent = int.Parse(listeB[i].ToString()),
                         IdPays = int.Parse(listeB[i + 1].ToString()),
@@ -44,14 +52,32 @@ namespace ProjetFinal_BOL
             }
             return listeB;
         }
+
+        public ActionResult GetListFiltree()
+        {
+            var listeVoyageFiltre = from v in Repo.Voyages
+                                    select v;
+            var listeCommandeFiltre = from c in Repo.Commandes
+                                      select c;
+            var listeClientFiltree = from m in Repo.Clients
+                                     select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                listeClientFiltree = listeClientFiltree.Where(s => s.Nom.Contains(searchString));
+            }
+
+            return Repo.;
+        }
+
         public ArrayList GetAllRegions([FromUri] long IdC, [FromUri] long IdP)
         {
             ArrayList listeC = Repo.GetRegionsByPays(IdC, IdP);
-            List<Region> listeR = new List<Region>();
+            List<Region_BOL> listeR = new List<Region_BOL>();
             for (int i = 0; i < listeC.Count; i += 4)
             {
                 listeR.Add(
-                    new Region
+                    new Region_BOL
                     {
                         IdRegions = int.Parse(listeC[i].ToString()),
                         IdPays = int.Parse(listeC[i + 1].ToString()),
