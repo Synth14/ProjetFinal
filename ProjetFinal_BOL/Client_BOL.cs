@@ -8,6 +8,7 @@ namespace ProjetFinal_BOL
 {
     public partial class Client_BOL
     {
+        private Repository_BOL Repo = new Repository_BOL();
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Client_BOL()
@@ -25,5 +26,12 @@ namespace ProjetFinal_BOL
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Commande_BOL> Commandes { get; set; }
+
+        //public List<Client_BOL> GetAllClients()
+        //{
+        //    return Repo.GetAllClient();
+        //}
     }
+
+
 }

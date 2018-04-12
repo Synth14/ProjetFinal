@@ -208,6 +208,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Client_UIL.cs" />
+    <Compile Include="Models\Commande.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -310,10 +312,6 @@
     <ProjectReference Include="..\ProjetFinal_BOL\ProjetFinal_BOL.csproj">
       <Project>{4AA0383A-BE3E-4E60-8800-855103CA301A}</Project>
       <Name>ProjetFinal_BOL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProjetFinal_DAL\ProjetFinal_DAL.csproj">
-      <Project>{76cccab8-6ef8-4c9b-9890-690854bf332e}</Project>
-      <Name>ProjetFinal_DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -9,7 +9,7 @@ namespace ProjetFinal_DAL
 {
     public class Repository_DAL
     {
-        private FinalDBContext context = new FinalDBContext();
+        private FinalDBContext Context = new FinalDBContext();
         public ArrayList GetAllContinents()
         {
             //return context.Continents.ToList();
@@ -37,6 +37,15 @@ namespace ProjetFinal_DAL
 
         public ArrayList PostVoyagesByRegions(long idC, long idP, long idR){
             return new ArrayList { };
+        }
+
+        public ArrayList GetCommandes()
+        {
+           var liste = Context.Commandes.ToList();
+            // ...
+            ArrayList listeAl = new ArrayList();
+            //...
+            return listeAl;
         }
     }
 }

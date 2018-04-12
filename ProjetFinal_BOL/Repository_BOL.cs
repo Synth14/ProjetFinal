@@ -12,7 +12,7 @@ namespace ProjetFinal_BOL
 {
     public class Repository_BOL
     {
-        private Repository_DAL Repo = new Repository_DAL(); 
+        private Repository_DAL Repo = new Repository_DAL();
         public ArrayList GetAllContinents()
         {
             ArrayList listeA = Repo.GetAllContinents();
@@ -28,6 +28,14 @@ namespace ProjetFinal_BOL
             }
             return listeA;
         }
+
+        public ArrayList GetCommandes()
+        {
+            ArrayList al = Repo.GetCommandes();
+            // ..
+            return al;
+        }
+
         public ArrayList GetAllPays([FromUri] long IdC)
         {
             ArrayList listeB = Repo.GetPaysByContinents(IdC);
@@ -44,6 +52,24 @@ namespace ProjetFinal_BOL
             }
             return listeB;
         }
+
+        public ActionResult GetListFiltree()
+        {
+            var listeVoyageFiltre = from v in Repo.Voyages
+                                    select v;
+            var listeCommandeFiltre = from c in Repo.Commandes
+                                      select c;
+            var listeClientFiltree = from m in Repo.Clients
+                                     select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                listeClientFiltree = listeClientFiltree.Where(s => s.Nom.Contains(searchString));
+            }
+
+            return Repo.;
+        }
+
         public ArrayList GetAllRegions([FromUri] long IdC, [FromUri] long IdP)
         {
             ArrayList listeC = Repo.GetRegionsByPays(IdC, IdP);
