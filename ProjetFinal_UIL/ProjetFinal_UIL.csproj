@@ -209,9 +209,13 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client_UIL.cs" />
-    <Compile Include="Models\Commande.cs" />
+    <Compile Include="Models\Commande_UIL.cs" />
+    <Compile Include="Models\Continent_UIL.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Pays_UIL.cs" />
+    <Compile Include="Models\Region_UIL.cs" />
+    <Compile Include="Models\Voyage_UIL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

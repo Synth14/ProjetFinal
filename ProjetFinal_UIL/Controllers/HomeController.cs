@@ -1,4 +1,5 @@
 ﻿using ProjetFinal_BOL;
+using ProjetFinal_UIL.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,6 +44,8 @@ namespace ProjetFinal_UIL.Controllers
         }
         public ActionResult Index()
         {
+            ArrayList listContinent = Repo.GetAllContinents();
+            List<Continent_UIL> ListDeContinents = List<Continent_UIL>();
          return View();
         }
 
