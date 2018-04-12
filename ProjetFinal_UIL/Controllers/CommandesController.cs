@@ -13,14 +13,14 @@ namespace ProjetFinal_UIL.Controllers
     public class CommandesController : Controller
     {
         private FinalDBContext db = new FinalDBContext();
-
+        [Authorize]
         // GET: Commandes
         public ActionResult Index()
         {
             var commandes = db.Commandes.Include(c => c.Client).Include(c => c.Voyage);
             return View(commandes.ToList());
         }
-
+        [Authorize]
         // GET: Commandes/Edit/5
         public ActionResult Edit(long? id)
         {

@@ -13,13 +13,13 @@ namespace ProjetFinal_UIL.Controllers
     public class ClientsController : Controller
     {
         private FinalDBContext db = new FinalDBContext();
-
+        [Authorize]
         // GET: Clients
         public ActionResult Index()
         {
             return View(db.Clients.ToList());
         }
-
+        [Authorize]
         // GET: Clients/Details/5
         public ActionResult Details(long? id)
         {
