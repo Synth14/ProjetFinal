@@ -8,5 +8,11 @@ namespace ProjetFinal_DAL
 {
     public class Repository
     {
+        private FinalDBContext context = new FinalDBContext();
+
+        public IEnumerable<Continent> GetContinent()
+        {
+            return context.Continents;
+        }
     }
 }
