@@ -65,6 +65,14 @@ namespace ProjetFinal_UIL.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Nom")]
+        public string Nom { get; set; }
+
+        [Required]
+        [Display(Name = "Prénom")]
+        public string Prenom { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Courrier électronique")]
         public string Email { get; set; }
