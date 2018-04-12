@@ -12,7 +12,16 @@ namespace ProjetFinal_DAL
         private FinalDBContext Context = new FinalDBContext();
         public ArrayList GetAllContinents()
         {
-            return new ArrayList(Context.Continents.ToList());
+            var liste = Context.Continents.ToList();
+            ArrayList listeContinent = new ArrayList();
+            for (int i = 0; i <= liste.Count; i += 2)
+            {
+
+                listeContinent.Add(liste[i].Nom);
+                listeContinent.Add(liste[i].IdContinent);
+            }
+
+            return (listeContinent);
         }
 
         public ArrayList GetPaysByContinents(long IdC)
@@ -34,13 +43,14 @@ namespace ProjetFinal_DAL
             return new ArrayList { };
         }
 
-        public ArrayList PostVoyagesByRegions(long idC, long idP, long idR){
+        public ArrayList PostVoyagesByRegions(long idC, long idP, long idR)
+        {
             return new ArrayList { };
         }
 
         public ArrayList GetCommandes()
         {
-           var liste = Context.Commandes.ToList();
+            var liste = Context.Commandes.ToList();
             // ...
             ArrayList listeAl = new ArrayList();
             //...

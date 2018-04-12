@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetFinal_BOL;
-using ProjetFinal_DAL;
 
 namespace ProjetFinal_UIL.Controllers
 {
@@ -37,40 +36,41 @@ namespace ProjetFinal_UIL.Controllers
         //    return View(listeClientFiltree.ToList());
         //}
 
-        [Authorize]
-        public ActionResult Index(string searchString)
-        {
-            return View(listeClient.GetAllClients());
-        }
+        //[Authorize]
+        //public ActionResult Index(string searchString)
+        //{
+        //    return View(listeClient.GetAllClients());
+        //}
 
 
 
-        [Authorize]
-        // GET: Clients/Details/5
-        public ActionResult Details(long? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return HttpNotFound();
-            }
-            return View(client);
-        }
+        //    [Authorize]
+        //    // GET: Clients/Details/5
+        //    public ActionResult Details(long? id)
+        //    {
+        //        if (id == null)
+        //        {
+        //            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //        }
+        //        Client client = db.Clients.Find(id);
+        //        if (client == null)
+        //        {
+        //            return HttpNotFound();
+        //        }
+        //        return View(client);
+        //    }
 
 
-     
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+
+        //    protected override void Dispose(bool disposing)
+        //    {
+        //        if (disposing)
+        //        {
+        //            db.Dispose();
+        //        }
+        //        base.Dispose(disposing);
+        //    }
+        //}
     }
 }
