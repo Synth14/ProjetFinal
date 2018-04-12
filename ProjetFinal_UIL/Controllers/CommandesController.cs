@@ -17,6 +17,7 @@ namespace ProjetFinal_UIL.Controllers
     {
         //private FinalDBContext db = new FinalDBContext();
         private Repository_BOL Repo = new Repository_BOL();
+
         [Authorize]
         // GET: Commandes
         public ActionResult Index()
@@ -27,6 +28,7 @@ namespace ProjetFinal_UIL.Controllers
             //var commandes = db.Commandes.Include(c => c.Client).Include(c => c.Voyage);
             return View(commandes);
         }
+
         [Authorize]
         // GET: Commandes/Edit/5
         public ActionResult Edit(long? id)

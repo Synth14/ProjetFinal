@@ -31,9 +31,9 @@ namespace ProjetFinal_BOL
 
         public ArrayList GetCommandes()
         {
-            ArrayList al = Repo.GetCommandes();
+            ArrayList alisteCommande = Repo.GetCommandes();
             // ..
-            return al;
+            return alisteCommande;
         }
 
         public ArrayList GetAllPays([FromUri] long IdC)
@@ -53,21 +53,11 @@ namespace ProjetFinal_BOL
             return listeB;
         }
 
-        public ActionResult GetListFiltree()
+        public ArrayList GetClients()
         {
-            var listeVoyageFiltre = from v in Repo.Voyages
-                                    select v;
-            var listeCommandeFiltre = from c in Repo.Commandes
-                                      select c;
-            var listeClientFiltree = from m in Repo.Clients
-                                     select m;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                listeClientFiltree = listeClientFiltree.Where(s => s.Nom.Contains(searchString));
-            }
-
-            return Repo.;
+            ArrayList alisteClient = Repo.GetClients();
+            // ..
+            return alisteClient;
         }
 
         public ArrayList GetAllRegions([FromUri] long IdC, [FromUri] long IdP)
