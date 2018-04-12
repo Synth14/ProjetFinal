@@ -12,6 +12,7 @@ namespace ProjetFinal_DAL
         private FinalDBContext context = new FinalDBContext();
         public ArrayList GetAllContinents()
         {
+            //return context.Continents.ToList();
             return new ArrayList { };
         }
 

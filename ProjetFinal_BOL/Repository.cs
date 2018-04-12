@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetFinal_BOL
 {
-    public class Class1
+    public class Repository
     {
     }
 }
