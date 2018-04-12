@@ -7,7 +7,16 @@
 <h2>Gestion Mailing</h2>
 
 <div class="jumbotron">
-    <table class="table">
+    <p>Recherche par critères :</p>
+    <form asp-controller="Movies" asp-action="Index">
+        <p>
+            Continent: <input type="text" name="SearchString">
+            <input type="submit" value="Filtrer" />
+        </p>
+    </form>
+</div>
+<div class="jumbotron">
+    <table class="table" id="listTable">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Nom)
