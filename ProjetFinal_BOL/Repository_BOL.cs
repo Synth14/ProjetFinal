@@ -31,11 +31,11 @@ namespace ProjetFinal_BOL
         public ArrayList GetAllPays([FromUri] long IdC)
         {
             ArrayList listeB = Repo.GetPaysByContinents(IdC);
-            List<Pay> listeP = new List<Pay>();
+            List<Pays_BOL> listeP = new List<Pays_BOL>();
             for (int i = 0; i < listeB.Count; i += 3)
             {
                 listeP.Add(
-                    new Pay
+                    new Pays_BOL
                     {
                         IdContinent = int.Parse(listeB[i].ToString()),
                         IdPays = int.Parse(listeB[i + 1].ToString()),
@@ -47,11 +47,11 @@ namespace ProjetFinal_BOL
         public ArrayList GetAllRegions([FromUri] long IdC, [FromUri] long IdP)
         {
             ArrayList listeC = Repo.GetRegionsByPays(IdC, IdP);
-            List<Region> listeR = new List<Region>();
+            List<Region_BOL> listeR = new List<Region_BOL>();
             for (int i = 0; i < listeC.Count; i += 4)
             {
                 listeR.Add(
-                    new Region
+                    new Region_BOL
                     {
                         IdRegions = int.Parse(listeC[i].ToString()),
                         IdPays = int.Parse(listeC[i + 1].ToString()),
