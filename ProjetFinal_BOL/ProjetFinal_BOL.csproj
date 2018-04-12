@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,8 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Client_BOL.cs" />
+    <Compile Include="Commande_BOL.cs" />
+    <Compile Include="Continent_BOL.cs" />
+    <Compile Include="Pays_BOL.cs" />
+    <Compile Include="Region_BOL.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Voyage_BOL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetFinal_DAL\ProjetFinal_DAL.csproj">
+      <Project>{76CCCAB8-6EF8-4C9B-9890-690854BF332E}</Project>
+      <Name>ProjetFinal_DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

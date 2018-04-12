@@ -1,4 +1,5 @@
 ﻿
+using ProjetFinal_BOL;
 using ProjetFinal_DAL;
 using System;
 using System.Collections;
@@ -12,21 +13,10 @@ namespace ProjetFinal_UIL.Controllers
 {
     public class CommandeController : ApiController
     {
-        private Repository Repo = new Repository();
+        private Repository_BOL Repo = new Repository_BOL();//Doit s'adresser a la couche métier
         public IEnumerable<Continent> GetAllContinents()
         {
-            ArrayList listeA = Repo.GetAllContinents();
-            List<Continent> listeC = new List<Continent>();
-            for (int i = 0; i < listeA.Count; i += 2)
-            {
-                listeC.Add(
-                    new Continent
-                    {
-                        IdContinent = int.Parse(listeA[i].ToString()),
-                        Nom = listeA[i + 1].ToString()
-                    });
-            }
-            return listeC;
+            return Repo.GetAllContinents();
         }
 
         public IEnumerable<Pay> GetAllPays([FromUri] long IdC)

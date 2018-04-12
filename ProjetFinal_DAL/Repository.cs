@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetFinal_DAL
 {
-    public class Repository
+    public class Repository_DAL
     {
         private FinalDBContext context = new FinalDBContext();
         public ArrayList GetAllContinents()
