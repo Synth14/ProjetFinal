@@ -16,7 +16,7 @@ namespace ProjetFinal_UIL
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{IdC}/{IdP}/{IdR}",
+                routeTemplate: "{controller}/{IdC}/{IdP}/{IdR}",
                 defaults: new { IdC = RouteParameter.Optional, IdP = RouteParameter.Optional, IdR = RouteParameter.Optional }
             );
         }
