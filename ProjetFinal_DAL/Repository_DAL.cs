@@ -12,8 +12,7 @@ namespace ProjetFinal_DAL
         private FinalDBContext Context = new FinalDBContext();
         public ArrayList GetAllContinents()
         {
-            //return context.Continents.ToList();
-            return new ArrayList { };
+            return new ArrayList(context.Continents.ToList());
         }
 
         public ArrayList GetPaysByContinents(long IdC)
