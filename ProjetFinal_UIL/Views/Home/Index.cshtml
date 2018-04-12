@@ -4,5 +4,251 @@
 
 <div class="jumbotron">
     <h1>Accueil</h1>
-   
+    <div class="page1">
+        <p>Choisissez votre destination :</p>
+
+        <div class="form-group dropdown">
+            <label>Continents</label>
+            <button id="dropContinent" class="btn btn-primary dropdown-toggle CmbBox"
+                    type="button"
+                    data-toggle="dropdown">
+                Quel continent ?
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="listeContinents"></ul>
+        </div>
+        <div class="form-group dropdown">
+            <label>Pays</label>
+            <button id="dropPays" class="btn btn-primary dropdown-toggle  CmbBox"
+                    type="button"
+                    data-toggle="dropdown">
+                Quel pays ?
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu"
+                id="listePays"></ul>
+        </div>
+        <div class="form-group dropdown">
+            <label>Régions</label>
+            <button id="dropRegion" class="btn btn-primary dropdown-toggle  CmbBox"
+                    type="button"
+                    data-toggle="dropdown">
+                Quelle région ?
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" id="listeRegions"></ul>
+        </div>
+        <div>
+            <p>Voyages compatibles avec vos critères :</p>
+            <ul id="VoyageDispo"></ul>
+        </div>
+
+    </div> <!--page1-->
+
+    <div class="page2">
+
+        <div>
+            <h2 id="titreVoyage" text-align: center class="page2">Titre</h2>
+            <div>
+                <p id="desDet" class="voyage">bvfwqb</p>
+                <div id="prixPers">€/personne</div>
+                <div id="prixPers">€</div>
+                <div>
+                    <label>Nombre de voyageurs ?</label>
+                    <input type="number" id="placeVoyage" />
+                    <button type="button" class="btn btn-success">Valider le voyage</button>
+                </div>
+                <button id="btnRetour" onclick="Retour()" type="button" class="btn btn-link">Retour</button>
+            </div>
+        </div>
+    </div> <!--page2-->
+
+    <script>
+        var url = "http://localhost:54985/Voyages/";
+        var donneeVoyage = null;
+        $.ajax(                                                   //executé des le chargement
+            {
+                type: "GET",
+                url: url,
+                success: function (data, status) {
+                    if (status == "success") {
+                        afficheContinents(data);
+
+                    }
+                },
+                error: function (xhr, status, error) {
+                    $("#message").html("Erreur de communication");
+                }
+            }
+        );
+
+        //fonction pour remplir la combobox des continents
+        function afficheContinents(liste) {
+            var lignes = '';
+            for (i = 0; i < liste.length; i++) {
+                lignes += '<li><a class="itemListeC page1" id="Continent_' + liste[i].IdContinent + '_' + liste[i].NomContinent + '" href="#">' + liste[i].NomContinent + '</a></li>';
+            }
+
+            $('#listeContinents').html(lignes);
+            $('.itemListeC').click(function () {          //on appelle la fonction remplirPays en cliquant sur un des continents
+                remplirPays(this.id.split('_')[1]);
+
+                $('#listeRegions').html("");              //on vide la liste des regions pour eviter les conflits
+                $('#dropContinent').html(this.id.split('_')[2]); //on note la valeur selectionnee dans la combobox
+                afficheVoyageByContinents(this.id.split('_')[1]);
+
+            });
+        }
+
+        function remplirPays(id) {
+            $.ajax(
+                {
+
+                    type: "GET",
+                    url: url + id,
+                    success: function (data, status) {
+                        if (status == "success") {
+                            affichePays(data);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        $("#message").html("Erreur de communication");
+                    }
+                }
+            );
+        }
+
+        function affichePays(liste) {
+            var lignes = '';
+            for (i = 0; i < liste.length; i++) {
+                lignes += '<li><a class="itemListeP" id="Pays_' + liste[i].IdContinent + '_' + liste[i].IdPays + '_' + liste[i].NomPays + '" href="#">' + liste[i].NomPays + '</a></li>';
+            }
+
+            $('#listePays').html(lignes);
+            $('.itemListeP').click(function () {
+                remplirRegions(this.id.split('_')[1], this.id.split('_')[2]);
+                $('#dropPays').html(this.id.split('_')[3]);
+                afficheVoyageByPays(this.id.split('_')[1], this.id.split('_')[2]);
+            });
+        }
+
+        function remplirRegions(idC, idP) {
+            $.ajax(
+                {
+
+                    type: "GET",
+                    url: url + idC + '/' + idP,
+                    success: function (data, status) {
+                        if (status == "success") {
+                            afficheRegions(data);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        $("#message").html("Erreur de communication");
+                    }
+                }
+            );
+        }
+
+        function afficheRegions(liste) {
+            var lignes = '';
+            for (i = 0; i < liste.length; i++) {
+                lignes += '<li><a class="itemListeR" id="Region_' + liste[i].IdContinent + '_' + liste[i].IdPays + '_' + liste[i].IdRegion + '_' + liste[i].NomRegion + '" href="#">' + liste[i].NomRegion + '</a></li>';
+            }
+
+            $('#listeRegions').html(lignes);
+            $('.itemListeR').click(function () {
+                remplirRegions(this.id.split('_')[1], this.id.split('_')[2], this.id.split('_')[3]);   //equivalent à idC, idP et idR
+                $('#dropRegion').html(this.id.split('_')[4]);
+                afficheVoyageByRegions(this.id.split('_')[1], this.id.split('_')[2], this.id.split('_')[3]);
+
+
+            });
+        }
+
+        function afficheVoyageByContinents(idC) {
+            $.ajax(
+                {
+
+                    type: "POST",
+                    url: url + idC,
+                    success: function (data, status) {
+                        if (status == "success") {
+                            $('#VoyageDispo').html('');
+                            $.each(data, function (index, value) {
+                                $('#VoyageDispo').append('<li class="voyage">' + value.NomVoyage + ' : ' + value.DescriptionCourte + ' <Button class="Btn1" onclick="Valider(value)" display:inline> Valider</Button></li> ');
+
+                            });
+
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        $("#message").html("Erreur de communication");
+                    }
+                }
+            );
+        }
+
+        function afficheVoyageByPays(idC, idP) {
+            $.ajax(
+                {
+
+                    type: "POST",
+                    url: url + idC + '/' + idP,
+                    success: function (data, status) {
+                        if (status == "success") {
+                            $('#VoyageDispo').html('');
+                            $.each(data, function (index, value) {
+                                $('#VoyageDispo').append('<li class="voyage">' + value.NomVoyage + ' : ' + value.DescriptionCourte + ' <Button class="Btn1" onclick="Valider(value)" display:inline> Valider</Button></li> ');
+
+                            });
+
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        $("#message").html("Erreur de communication");
+                    }
+                }
+            );
+        }
+
+        function afficheVoyageByRegions(idC, idP, idC) {
+            $.ajax(
+                {
+
+                    type: "POST",
+                    url: url + idC + '/' + idP + '/' + idC,
+                    success: function (data, status) {
+                        if (data != 0) {
+                            if (status == "success") {
+                                $('#VoyageDispo').html('');
+                                $.each(data, function (index, value) {
+                                    $('#VoyageDispo').append('<li class="voyage">' + value.NomVoyage + ' : ' + value.DescriptionCourte + ' <Button class="Btn1" onclick="Valider(value)" display:inline> Valider</Button></li> ');
+                                });
+
+                            }
+                        }
+                        else { alert('Aucun voyage disponible ! Veuillez modifier vos critères.') }
+                    },
+
+                    error: function (xhr, status, error) {
+                        $("#message").html("Erreur de communication");
+                    }
+                }
+
+
+            );
+        }
+
+        function Valider(value) {
+            donneeVoyage = this.value;
+            $(".page1").hide();
+            $(".page2").show();
+
+        }
+        function Retour() {
+            $(".page2").hide();
+            $(".page1").show();
+        }
+    </script>
 </div>
