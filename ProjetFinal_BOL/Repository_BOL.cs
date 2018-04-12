@@ -32,24 +32,13 @@ namespace ProjetFinal_BOL
         public ArrayList GetCommandes()
         {
             ArrayList alisteCommande = Repo.GetCommandes();
-            // ..
+          
             return alisteCommande;
         }
 
-        public ArrayList GetAllPays([FromUri] long IdC)
+        public ArrayList GetPaysByContinents([FromUri] long IdC)
         {
             ArrayList listeB = Repo.GetPaysByContinents(IdC);
-            List<Pays_BOL> listeP = new List<Pays_BOL>();
-            for (int i = 0; i < listeB.Count; i += 3)
-            {
-                listeP.Add(
-                    new Pays_BOL
-                    {
-                        IdContinent = int.Parse(listeB[i].ToString()),
-                        IdPays = int.Parse(listeB[i + 1].ToString()),
-                        Nom = listeB[i + 2].ToString()
-                    });
-            }
             return listeB;
         }
 

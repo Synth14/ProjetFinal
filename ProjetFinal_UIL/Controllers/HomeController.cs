@@ -56,7 +56,18 @@ namespace ProjetFinal_UIL.Controllers
                          IdContinent = int.Parse(listContinent[i+1].ToString())
                     });
             }
-           return View(ListDeContinents);
+            //ArrayList listPays = Repo.GetPaysByContinents(1);
+            //List<Pays_UIL> ListDePays = new List<Pays_UIL>();
+            //for (int i = 0; i < listPays.Count; i += 2)
+            //{
+            //    ListDePays.Add(
+            //        new Pays_UIL
+            //        {
+            //            Nom = listPays[i].ToString(),
+            //            IdPays = int.Parse(listPays[i + 1].ToString())
+            //        });
+            //}
+            return View(ListDeContinents);
         }
 
         public ActionResult About()
