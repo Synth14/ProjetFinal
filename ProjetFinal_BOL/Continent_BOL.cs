@@ -12,7 +12,7 @@ namespace ProjetFinal_BOL
         public Continent_BOL()
         {
             this.Pays = new HashSet<Pays_BOL>();
-            this.Voyages = new HashSet<Voyage>();
+            this.Voyages = new HashSet<Voyage_BOL>();
         }
 
         public long IdContinent { get; set; }
@@ -21,6 +21,6 @@ namespace ProjetFinal_BOL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pays_BOL> Pays { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Voyage> Voyages { get; set; }
+        public virtual ICollection<Voyage_BOL> Voyages { get; set; }
     }
 }

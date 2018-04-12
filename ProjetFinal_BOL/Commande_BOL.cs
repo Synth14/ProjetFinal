@@ -26,6 +26,6 @@ namespace ProjetFinal_BOL
         public long IdClient { get; set; }
 
         public virtual Client_BOL Client { get; set; }
-        public virtual Voyage Voyage { get; set; }
+        public virtual Voyage_BOL Voyage { get; set; }
     }
 }

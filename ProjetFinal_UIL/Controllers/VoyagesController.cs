@@ -14,113 +14,35 @@ namespace ProjetFinal_UIL.Controllers
     public class CommandeController : ApiController
     {
         private Repository_BOL Repo = new Repository_BOL();//Doit s'adresser a la couche métier
-        public IEnumerable<Continent> GetAllContinents()
+        public ArrayList GetAllContinents()
         {
             return Repo.GetAllContinents();
         }
 
-        public IEnumerable<Pay> GetAllPays([FromUri] long IdC)
+        public ArrayList GetAllPays([FromUri] long IdC)
         {
-            ArrayList listeB = Repo.GetPaysByContinents(IdC);
-            List<Pay> listeP = new List<Pay>();
-            for (int i = 0; i < listeB.Count; i += 3)
-            {
-                listeP.Add(
-                    new Pay
-                    {
-                        IdContinent = int.Parse(listeB[i].ToString()),
-                        IdPays = int.Parse(listeB[i + 1].ToString()),
-                        Nom = listeB[i + 2].ToString()
-                    });
-            }
-            return listeP;
+            return Repo.GetAllPays(IdC);
         }
 
-        public IEnumerable<Region> GetAllRegions([FromUri] long IdC, [FromUri] long IdP)
+        public ArrayList GetAllRegions([FromUri] long IdC, [FromUri] long IdP)
         {
-            ArrayList listeC = Repo.GetRegionsByPays(IdC, IdP);
-            List<Region> listeR = new List<Region>();
-            for (int i = 0; i < listeC.Count; i += 4)
-            {
-                listeR.Add(
-                    new Region
-                    {
-                        IdRegions = int.Parse(listeC[i].ToString()),
-                        IdPays = int.Parse(listeC[i + 1].ToString()),
-                        Nom = listeC[i + 3].ToString()
-                    });
-            }
-            return listeR;
+            return Repo.GetAllRegions(IdC,IdP);
         }
 
         //voyages a 9 parametres :idC, idP,idR,idV, nomVoyage, descriptionCourte, descriptionDetaillee, prix, nbPlaceDispo
-        public IEnumerable<Voyage> PostVoyageByContinent([FromUri] long IdC)
+        public ArrayList PostVoyageByContinent([FromUri] long IdC)
         {
-            ArrayList listeD = Repo.PostVoyagesByContinent(IdC);
-            List<Voyage> listeV = new List<Voyage>();
-            for (int i = 0; i < listeD.Count; i += 9)
-            {
-                listeV.Add(
-                    new Voyage
-                    {
-                        IdContinent = int.Parse(listeD[i].ToString()),
-                        IdVoyage = int.Parse(listeD[i + 3].ToString()),
-                        Titre = listeD[i + 4].ToString(),
-                        DescCourte = listeD[i + 5].ToString(),
-                        DescLongue = listeD[i + 6].ToString(),
-                        Prix = float.Parse(listeD[i + 7].ToString()),
-                        NbPlaceDisponible = int.Parse(listeD[i + 8].ToString())
-                    });
-            }
-            return listeV;
+            return Repo.PostVoyageByContinent(IdC);
         }
 
-        public IEnumerable<Voyage> PostVoyagesByPays([FromUri] long IdC, [FromUri] long IdP)
+        public ArrayList PostVoyagesByPays([FromUri] long IdC, [FromUri] long IdP)
         {
-            ArrayList listeE = Repo.PostVoyagesByPays(IdC, IdP);
-            List<Voyage> listeV = new List<Voyage>();
-            for (int i = 0; i < listeE.Count; i += 9)
-            {
-                listeV.Add(
-                    new Voyage
-                    {
-                        IdContinent = int.Parse(listeE[i].ToString()),
-                        IdVoyage = int.Parse(listeE[i + 3].ToString()),
-                        Titre = listeE[i + 4].ToString(),
-                        DescCourte = listeE[i + 5].ToString(),
-                        DescLongue = listeE[i + 6].ToString(),
-                        Prix = float.Parse(listeE[i + 7].ToString()),
-                        NbPlaceDisponible = int.Parse(listeE[i + 8].ToString())
-                    });
-            }
-            return listeV;
+            return Repo.PostVoyagesByPays(IdC,IdP);
         }
 
-        public IEnumerable<Voyage> PostVoyagesByRegions([FromUri] long IdC, [FromUri] long IdP, [FromUri] long IdR)
+        public ArrayList PostVoyagesByRegions([FromUri] long IdC, [FromUri] long IdP, [FromUri] long IdR)
         {
-            ArrayList listeF = Repo.PostVoyagesByRegions(IdC, IdP, IdR);
-            List<Voyage> listeV = new List<Voyage>();
-            if (listeF != null)
-            {
-                for (int i = 0; i < listeF.Count; i += 9)
-                {
-                    listeV.Add(
-                        new Voyage
-                        {
-                            IdContinent = int.Parse(listeV[i].ToString()),
-                            IdVoyage = int.Parse(listeV[i + 3].ToString()),
-                            Titre = listeV[i + 4].ToString(),
-                            DescCourte = listeV[i + 5].ToString(),
-                            DescLongue = listeV[i + 6].ToString(),
-                            Prix = float.Parse(listeV[i + 7].ToString()),
-                            NbPlaceDisponible = int.Parse(listeV[i + 8].ToString())
-                        });
-                }
-                return listeV;
-            }
-            else { return listeV; }
-
-
+            return Repo.PostVoyagesByRegions(IdC, IdP, IdR);
         }
 
 

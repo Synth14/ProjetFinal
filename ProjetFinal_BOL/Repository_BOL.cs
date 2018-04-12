@@ -1,0 +1,137 @@
+﻿
+using ProjetFinal_DAL;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.Http;
+
+namespace ProjetFinal_BOL
+{
+    public class Repository_BOL
+    {
+        private Repository_DAL Repo = new Repository_DAL(); 
+        public ArrayList GetAllContinents()
+        {
+            ArrayList listeA = Repo.GetAllContinents();
+            List<Continent_BOL> listeC = new List<Continent_BOL>();
+            for (int i = 0; i < listeA.Count; i += 2)
+            {
+                listeC.Add(
+                    new Continent_BOL
+                    {
+                        IdContinent = int.Parse(listeA[i].ToString()),
+                        Nom = listeA[i + 1].ToString()
+                    });
+            }
+            return listeA;
+        }
+        public ArrayList GetAllPays([FromUri] long IdC)
+        {
+            ArrayList listeB = Repo.GetPaysByContinents(IdC);
+            List<Pay> listeP = new List<Pay>();
+            for (int i = 0; i < listeB.Count; i += 3)
+            {
+                listeP.Add(
+                    new Pay
+                    {
+                        IdContinent = int.Parse(listeB[i].ToString()),
+                        IdPays = int.Parse(listeB[i + 1].ToString()),
+                        Nom = listeB[i + 2].ToString()
+                    });
+            }
+            return listeB;
+        }
+        public ArrayList GetAllRegions([FromUri] long IdC, [FromUri] long IdP)
+        {
+            ArrayList listeC = Repo.GetRegionsByPays(IdC, IdP);
+            List<Region> listeR = new List<Region>();
+            for (int i = 0; i < listeC.Count; i += 4)
+            {
+                listeR.Add(
+                    new Region
+                    {
+                        IdRegions = int.Parse(listeC[i].ToString()),
+                        IdPays = int.Parse(listeC[i + 1].ToString()),
+                        Nom = listeC[i + 3].ToString()
+                    });
+            }
+            return listeC;
+        }
+
+        //voyages a 9 parametres :idC, idP,idR,idV, nomVoyage, descriptionCourte, descriptionDetaillee, prix, nbPlaceDispo
+        public ArrayList PostVoyageByContinent([FromUri] long IdC)
+        {
+            ArrayList listeD = Repo.PostVoyagesByContinent(IdC);
+            List<Voyage_BOL> listeV = new List<Voyage_BOL>();
+            for (int i = 0; i < listeD.Count; i += 9)
+            {
+                listeV.Add(
+                    new Voyage_BOL
+                    {
+                        IdContinent = int.Parse(listeD[i].ToString()),
+                        IdVoyage = int.Parse(listeD[i + 3].ToString()),
+                        Titre = listeD[i + 4].ToString(),
+                        DescCourte = listeD[i + 5].ToString(),
+                        DescLongue = listeD[i + 6].ToString(),
+                        Prix = float.Parse(listeD[i + 7].ToString()),
+                        NbPlaceDisponible = int.Parse(listeD[i + 8].ToString())
+                    });
+            }
+            return listeD;
+        }
+
+        public ArrayList PostVoyagesByPays([FromUri] long IdC, [FromUri] long IdP)
+        {
+            ArrayList listeE = Repo.PostVoyagesByPays(IdC, IdP);
+            List<Voyage_BOL> listeV = new List<Voyage_BOL>();
+            for (int i = 0; i < listeE.Count; i += 9)
+            {
+                listeV.Add(
+                    new Voyage_BOL
+                    {
+                        IdContinent = int.Parse(listeE[i].ToString()),
+                        IdVoyage = int.Parse(listeE[i + 3].ToString()),
+                        Titre = listeE[i + 4].ToString(),
+                        DescCourte = listeE[i + 5].ToString(),
+                        DescLongue = listeE[i + 6].ToString(),
+                        Prix = float.Parse(listeE[i + 7].ToString()),
+                        NbPlaceDisponible = int.Parse(listeE[i + 8].ToString())
+                    });
+            }
+            return listeE;
+        }
+
+        public ArrayList PostVoyagesByRegions([FromUri] long IdC, [FromUri] long IdP, [FromUri] long IdR)
+        {
+            ArrayList listeF = Repo.PostVoyagesByRegions(IdC, IdP, IdR);
+            List<Voyage_BOL> listeV = new List<Voyage_BOL>();
+            if (listeF != null)
+            {
+                for (int i = 0; i < listeF.Count; i += 9)
+                {
+                    listeV.Add(
+                        new Voyage_BOL
+                        {
+                            IdContinent = int.Parse(listeV[i].ToString()),
+                            IdVoyage = int.Parse(listeV[i + 3].ToString()),
+                            Titre = listeV[i + 4].ToString(),
+                            DescCourte = listeV[i + 5].ToString(),
+                            DescLongue = listeV[i + 6].ToString(),
+                            Prix = float.Parse(listeV[i + 7].ToString()),
+                            NbPlaceDisponible = int.Parse(listeV[i + 8].ToString())
+                        });
+                }
+                return listeF;
+            }
+            else { return listeF; }
+
+
+        }
+
+
+    }
+}
+

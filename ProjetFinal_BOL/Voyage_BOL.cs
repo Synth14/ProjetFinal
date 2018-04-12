@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ProjetFinal_BOL
 {
-    public partial class Voyage
+    public partial class Voyage_BOL
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Voyage()
+        public Voyage_BOL()
         {
             this.Commandes = new HashSet<Commande_BOL>();
         }
