@@ -42,12 +42,22 @@ namespace ProjetFinal_UIL.Controllers
         {
             return Repo.PostVoyagesByRegions(IdC, IdP, IdR);
         }
-        //public ActionResult Index()
-        //{
-        //    ArrayList listContinent = Repo.GetAllContinents();
-        //    List<Continent_UIL> ListDeContinents = List<Continent_UIL>();
-        // return View();
-        //}
+        public ActionResult Index()
+        {
+            ArrayList listContinent = Repo.GetAllContinents();
+            List<Continent_UIL> ListDeContinents = new List<Continent_UIL>();
+
+            for (int i = 0; i <= listContinent.Count; i +=3)
+            {
+                ListDeContinents.Add(
+                    new Continent_UIL
+                    {
+                        IdContinent = int.Parse(ListDeContinents[i].ToString()),
+                        Nom = ListDeContinents[i+1].ToString()
+                    });
+            }
+            return View(ListDeContinents);
+        }
 
         public ActionResult About()
         {
@@ -63,5 +73,7 @@ namespace ProjetFinal_UIL.Controllers
             return View();
         }
 
+
+      
     }
 }
