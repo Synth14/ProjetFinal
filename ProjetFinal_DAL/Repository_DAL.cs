@@ -56,6 +56,15 @@ namespace ProjetFinal_DAL
             //...
             return listeAl;
         }
+
+        public ArrayList GetClients()
+        {
+            var liste = Context.Clients.ToList();
+            // ...
+            ArrayList listeAlClient = new ArrayList();
+            //...
+            return listeAlClient;
+        }
     }
 }
 
