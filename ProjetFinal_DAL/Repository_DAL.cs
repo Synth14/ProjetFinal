@@ -46,6 +46,23 @@ namespace ProjetFinal_DAL
             return new ArrayList { };
         }
 
+        public ArrayList GetAllCommande()
+        {
+            var liste = Context.Commandes.ToList();
+            ArrayList listeCommande = new ArrayList();
+            for (int i = 0; i < liste.Count; i++)
+            {
+                listeCommande.Add(liste[i].IdCommande);
+                listeCommande.Add(liste[i].IdVoyage);
+                listeCommande.Add(liste[i].NbPlaceDemande);
+                listeCommande.Add(liste[i].Solvabilite);
+                listeCommande.Add(liste[i].TotalCommande);
+                listeCommande.Add(liste[i].IdClient);
+            }
+
+            return (listeCommande);
+        }
+
         public ArrayList PostVoyagesByPays(long idC, long idP)
         {
             return new ArrayList { };
