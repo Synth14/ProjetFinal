@@ -15,10 +15,27 @@ namespace ProjetFinal_UIL.Controllers
         private FinalDBContext db = new FinalDBContext();
         [Authorize]
         // GET: Clients
-        public ActionResult Index()
+        //public ActionResult Index()
+        //{
+        //    return View(db.Clients.ToList());
+        //}
+        public ActionResult Index(string searchString)
         {
-            return View(db.Clients.ToList());
+            var listeVoyageFiltre = from v in db.Voyages
+                                      select v;
+            var listeCommandeFiltre = from c in db.Commandes
+                                      select c;
+            var listeClientFiltree = from m in db.Clients
+                               select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                listeClientFiltree = listeClientFiltree.Where(s => s.Nom.Contains(searchString));
+            }
+
+            return View(listeClientFiltree.ToList());
         }
+
         [Authorize]
         // GET: Clients/Details/5
         public ActionResult Details(long? id)
