@@ -14,9 +14,8 @@ namespace ProjetFinal_DAL
         {
             var liste = Context.Continents.ToList();
             ArrayList listeContinent = new ArrayList();
-            for (int i = 0; i <= liste.Count; i += 2)
+            for (int i = 0; i < liste.Count; i ++)
             {
-
                 listeContinent.Add(liste[i].Nom);
                 listeContinent.Add(liste[i].IdContinent);
             }

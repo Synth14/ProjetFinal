@@ -47,16 +47,16 @@ namespace ProjetFinal_UIL.Controllers
             ArrayList listContinent = Repo.GetAllContinents();
             List<Continent_UIL> ListDeContinents = new List<Continent_UIL>();
 
-            for (int i = 0; i <= listContinent.Count; i +=3)
+            for (int i = 0; i < listContinent.Count; i+=2)
             {
                 ListDeContinents.Add(
                     new Continent_UIL
                     {
-                        IdContinent = int.Parse(ListDeContinents[i].ToString()),
-                        Nom = ListDeContinents[i+1].ToString()
+                         Nom = listContinent[i].ToString(),
+                         IdContinent = int.Parse(listContinent[i+1].ToString())
                     });
             }
-            return View(ListDeContinents);
+           return View(ListDeContinents);
         }
 
         public ActionResult About()
