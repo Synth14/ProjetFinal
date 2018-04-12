@@ -16,16 +16,16 @@ namespace ProjetFinal_BOL
         public ArrayList GetAllContinents()
         {
             ArrayList listeA = Repo.GetAllContinents();
-            List<Continent_BOL> listeC = new List<Continent_BOL>();
-            for (int i = 0; i < listeA.Count; i += 2)
-            {
-                listeC.Add(
-                    new Continent_BOL
-                    {
-                        IdContinent = int.Parse(listeA[i].ToString()),
-                        Nom = listeA[i + 1].ToString()
-                    });
-            }
+            //List<Continent_BOL> listeC = new List<Continent_BOL>();
+            //for (int i = 0; i < listeA.Count; i += 2)
+            //{
+            //    listeC.Add(
+            //        new Continent_BOL
+            //        {
+            //            IdContinent = int.Parse(listeA[i].ToString()),
+            //            Nom = listeA[i + 1].ToString()
+            //        });
+            //}
             return listeA;
         }
         public ArrayList GetAllPays([FromUri] long IdC)

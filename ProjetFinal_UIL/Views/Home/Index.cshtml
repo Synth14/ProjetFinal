@@ -62,12 +62,12 @@
             </div>
         </div>
     </div> <!--page2-->
-
+@section scripts{
     <script>
-        var url = "http://localhost:54985/Voyages/";
+        $('#dropContinent').click(function(){
+        var url = "http://localhost:54985/Home/Index/";
         var donneeVoyage = null;
-        $.ajax(                                                   //executé des le chargement
-            {
+        $.ajax({
                 type: "GET",
                 url: url,
                 success: function (data, status) {
@@ -79,25 +79,25 @@
                 error: function (xhr, status, error) {
                     $("#message").html("Erreur de communication");
                 }
-            }
-        );
+            });
+        });
 
         //fonction pour remplir la combobox des continents
         function afficheContinents(liste) {
             var lignes = '';
             for (i = 0; i < liste.length; i++) {
-                lignes += '<li><a class="itemListeC page1" id="Continent_' + liste[i].IdContinent + '_' + liste[i].NomContinent + '" href="#">' + liste[i].NomContinent + '</a></li>';
+                lignes += '<li><a class="itemListeC page1" id="Continent_' + liste[i].IdContinent + '_' + liste[i].Nom + '" href="#">' + liste[i].NomContinent + '</a></li>';
             }
 
             $('#listeContinents').html(lignes);
-            $('.itemListeC').click(function () {          //on appelle la fonction remplirPays en cliquant sur un des continents
-                remplirPays(this.id.split('_')[1]);
+            //$('.itemListeC').click(function () {          //on appelle la fonction remplirPays en cliquant sur un des continents
+            //    remplirPays(this.id.split('_')[1]);
 
-                $('#listeRegions').html("");              //on vide la liste des regions pour eviter les conflits
-                $('#dropContinent').html(this.id.split('_')[2]); //on note la valeur selectionnee dans la combobox
-                afficheVoyageByContinents(this.id.split('_')[1]);
+            //    $('#listeRegions').html("");              //on vide la liste des regions pour eviter les conflits
+            //    $('#dropContinent').html(this.id.split('_')[2]); //on note la valeur selectionnee dans la combobox
+            //    afficheVoyageByContinents(this.id.split('_')[1]);
 
-            });
+          //  });
         }
 
         function remplirPays(id) {
@@ -251,4 +251,5 @@
             $(".page1").show();
         }
     </script>
+    }
 </div>
