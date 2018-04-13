@@ -34,11 +34,9 @@ namespace ProjetFinal_DAL
             {
                 listePaysByContinentById.Add(liste[i].IdContinent);
                 listePaysByContinentById.Add(liste[i].Nom);
-
             }
             return listePaysByContinentById;
         }
-
         public ArrayList GetRegionsByPays(long IdC, long IdP)
         {
             return new ArrayList { };
@@ -47,7 +45,6 @@ namespace ProjetFinal_DAL
         {
             return new ArrayList { };
         }
-
         public ArrayList GetAllCommande()
         {
             var liste = Context.Commandes.ToList();
