@@ -44,6 +44,8 @@ namespace ProjetFinal_DAL
             ArrayList listePaysByContinentById = new ArrayList();
             List<Pay> liste = null;
             //List<Pay> liste = Context.Continents.Where(x => x.IdContinent == IdC).Select(x => x.Nom).ToList();
+            //ICI PROC STOCK
+            //Même traitement normalement
 
             for (int i = 0; i < liste.Count; i++)
             {
