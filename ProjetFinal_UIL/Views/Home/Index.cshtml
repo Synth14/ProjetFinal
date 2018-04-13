@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<ProjetFinal_UIL.Models.Continent_UIL>
 
+
+
 @{
     ViewBag.Title = "Index";
 }
@@ -8,11 +10,12 @@
 
 
 
-    <select>
-        @foreach (var item in Model)
-        {
+<select>
+    <option value="" disabled selected>Continent</option>
+    @foreach (var item in Model)
+    {
         <option>
             @Html.DisplayFor(modelItem => item.Nom)
         </option>
-        }
-    </select>
+    }
+</select>
