@@ -15,7 +15,7 @@ namespace ProjetFinal_UIL.Controllers
     public class CommandesController : Controller
     {
         private Repository_BOL Repo = new Repository_BOL();
-        [Authorize]
+        [Authorize(Roles = "Commercial, SuperAdmin")]
         // GET: Commandes
         public ActionResult Index()
         {

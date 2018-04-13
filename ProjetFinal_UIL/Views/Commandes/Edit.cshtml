@@ -20,8 +20,9 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Solvabilite, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Solvabilite, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Solvabilite, "", new { @class = "text-danger" })
+                    @Html.ActionLink("Create A New Invoice", "Create", "Travel", null, new { @class = "btn btn-primary btn-large" })
+                    @* faire appel au service, tout ça tout ça! /!\ *@
+
                 </div>
             </div>
 

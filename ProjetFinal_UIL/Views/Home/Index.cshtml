@@ -6,13 +6,13 @@
 
 <h2>Accueil BoVoyage</h2>
 
-<select>
 
-    @foreach (var item in Model)
-    {
+
+    <select>
+        @foreach (var item in Model)
+        {
         <option>
             @Html.DisplayFor(modelItem => item.Nom)
         </option>
-    }
-
-</select>
+        }
+    </select>
