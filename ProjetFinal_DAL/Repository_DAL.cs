@@ -27,7 +27,7 @@ namespace ProjetFinal_DAL
         public ArrayList GetPaysByContinents(long IdC)
         {
             var liste = Context.Continents.Where(x => x.IdContinent == IdC).Select(x => x.Pays);
-            
+
             //ArrayList listePays = new ArrayList();
             //for(int i=0;i<liste.Count; i++)
             //{
@@ -68,21 +68,26 @@ namespace ProjetFinal_DAL
 
         public ArrayList GetClientsById(string searchString)
         {
-
-            var liste = Context.Clients.ToList();
             var listeClientFiltree = new ArrayList();
+            List<Client> liste = null;
+
+            if (String.IsNullOrEmpty(searchString))
+            {
+                liste = Context.Clients.ToList();
+            }
+
+            else
+            {
+                liste = Context.Clients.Where(s => s.Nom.Contains(searchString)).ToList();
+            }
+            
             for (int i = 0; i < liste.Count; i++)
             {
                 listeClientFiltree.Add(liste[i].Nom);
                 listeClientFiltree.Add(liste[i].Prenom);
                 listeClientFiltree.Add(liste[i].Mail);
             }
-
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    listeClientFiltree = listeClientFiltree.Where(s => s.Nom.Contains(searchString));
-            //}
-
+            
             return (listeClientFiltree);
         }
 
