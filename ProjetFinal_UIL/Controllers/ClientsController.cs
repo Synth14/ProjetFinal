@@ -60,7 +60,7 @@ namespace ProjetFinal_UIL.Controllers
         //    return View(listeDeClients);
         //}
 
-        [Authorize]
+        [Authorize(Roles = "Mailing, SuperAdmin")]
         public ActionResult Index(string searchString)
         {
             ArrayList listeClients = Repo.GetClientById(searchString);
