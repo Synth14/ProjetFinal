@@ -1,18 +1,36 @@
-﻿@model IEnumerable<ProjetFinal_UIL.Models.Continent_UIL>
+﻿@model ProjetFinal_UIL.Models.HomeIndexList
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-
-
+<h2>Bienvenue sur le site BOVoyage</h2>
+<div class="container">
     <select>
-        @foreach (var item in Model)
+        @foreach (var item in Model.ListContinent)
         {
-        <option>
-            @Html.DisplayFor(modelItem => item.Nom)
-        </option>
+            <option>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </option>
         }
     </select>
+</div>
+
+
+
+
+@foreach (var item in Model.ListVoyage)
+{
+
+ 
+    <div class="col-sm-6 col-md-4 marginTop">
+        <div class="thumbnail">
+            <img style="width:100%" class="arrondi taille" src="@Html.DisplayFor(modelItem => item.photo)">
+            <div class="caption">
+                <h3> @Html.DisplayFor(modelItem => item.Titre)</h3><p> @Html.DisplayFor(modelItem => item.DescLongue)</p><button class="btn btn-primary">@Html.DisplayFor(modelItem => item.Prix) €</button>
+            </div>
+        </div>
+    </div>
+
+}
+

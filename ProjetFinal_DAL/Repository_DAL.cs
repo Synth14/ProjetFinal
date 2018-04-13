@@ -23,6 +23,21 @@ namespace ProjetFinal_DAL
 
             return (listeContinent);
         }
+        public ArrayList GetAllVoyages()
+        {
+            var liste = Context.Voyages.ToList();
+            ArrayList listeVoyages = new ArrayList();
+            for (int i = 0; i < liste.Count; i++)
+            {
+                listeVoyages.Add(liste[i].Titre);
+                listeVoyages.Add(liste[i].DescCourte);
+                listeVoyages.Add(liste[i].DescLongue);
+                listeVoyages.Add(liste[i].Prix);
+                listeVoyages.Add(liste[i].photo);
+            }
+
+            return (listeVoyages);
+        }
 
         public ArrayList GetPaysByContinents(long IdC)
         {
