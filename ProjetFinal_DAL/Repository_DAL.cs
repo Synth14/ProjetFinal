@@ -26,16 +26,17 @@ namespace ProjetFinal_DAL
 
         public ArrayList GetPaysByContinents(long IdC)
         {
-            var liste = Context.Continents.Where(x => x.IdContinent == IdC).Select(x => x.Pays);
+            ArrayList listePaysByContinentById = new ArrayList();
+            List<Pay> liste = null;
+            //List<Pay> liste = Context.Continents.Where(x => x.IdContinent == IdC).Select(x => x.Nom).ToList();
 
-            //ArrayList listePays = new ArrayList();
-            //for(int i=0;i<liste.Count; i++)
-            //{
-            //    //listePays.Add(liste[i].IdContinent);
-            //    //listePays.Add(liste[i].Pays);
+            for (int i = 0; i < liste.Count; i++)
+            {
+                listePaysByContinentById.Add(liste[i].IdContinent);
+                listePaysByContinentById.Add(liste[i].Nom);
 
-            //}
-            return (ArrayList)(liste);
+            }
+            return listePaysByContinentById;
         }
 
         public ArrayList GetRegionsByPays(long IdC, long IdP)
