@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace ProjetFinal_DAL
 {
@@ -14,7 +15,7 @@ namespace ProjetFinal_DAL
         {
             var liste = Context.Continents.ToList();
             ArrayList listeContinent = new ArrayList();
-            for (int i = 0; i < liste.Count; i ++)
+            for (int i = 0; i < liste.Count; i++)
             {
                 listeContinent.Add(liste[i].Nom);
                 listeContinent.Add(liste[i].IdContinent);
@@ -64,6 +65,8 @@ namespace ProjetFinal_DAL
             //...
             return listeAlClient;
         }
+
+
     }
 }
 

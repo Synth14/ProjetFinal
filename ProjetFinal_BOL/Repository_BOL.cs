@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Security;
 
 namespace ProjetFinal_BOL
 {
@@ -28,14 +29,12 @@ namespace ProjetFinal_BOL
             //}
             return listeA;
         }
-
         public ArrayList GetCommandes()
         {
             ArrayList alisteCommande = Repo.GetCommandes();
             // ..
             return alisteCommande;
         }
-
         public ArrayList GetAllPays([FromUri] long IdC)
         {
             ArrayList listeB = Repo.GetPaysByContinents(IdC);
@@ -52,14 +51,12 @@ namespace ProjetFinal_BOL
             }
             return listeB;
         }
-
         public ArrayList GetClients()
         {
             ArrayList alisteClient = Repo.GetClients();
             // ..
             return alisteClient;
         }
-
         public ArrayList GetAllRegions([FromUri] long IdC, [FromUri] long IdP)
         {
             ArrayList listeC = Repo.GetRegionsByPays(IdC, IdP);
@@ -76,7 +73,6 @@ namespace ProjetFinal_BOL
             }
             return listeC;
         }
-
         //voyages a 9 parametres :idC, idP,idR,idV, nomVoyage, descriptionCourte, descriptionDetaillee, prix, nbPlaceDispo
         public ArrayList PostVoyageByContinent([FromUri] long IdC)
         {
@@ -143,10 +139,7 @@ namespace ProjetFinal_BOL
                 return listeF;
             }
             else { return listeF; }
-
-
         }
-
 
     }
 }
