@@ -15,9 +15,9 @@ public partial class Commande_UIL
     [DisplayName("État de la commande")]
     public Nullable<int> EtatCommande { get; set; }
     public long IdVoyage { get; set; }
-    [DisplayName("Date de la commande")]
-    [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-    public Nullable<System.DateTime> DateCommande { get; set; }
+    //[DisplayName("Date de la commande")]
+    //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+    //public Nullable<System.DateTime> DateCommande { get; set; }
     public long IdClient { get; set; }
 
     public virtual Client_UIL Client { get; set; }

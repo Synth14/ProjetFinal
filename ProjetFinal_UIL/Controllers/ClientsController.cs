@@ -41,10 +41,29 @@ namespace ProjetFinal_UIL.Controllers
         //    return View(listeClientFiltree.ToList());
         //}
 
+        //[Authorize]
+        //public ActionResult Index()
+        //{
+        //    ArrayList listeClients = Repo.GetAllClients();
+        //    List<Client_UIL> listeDeClients = new List<Client_UIL>();
+        //    for (int i = 0; i < listeClients.Count; i += 3)
+        //    {
+        //        listeDeClients.Add(
+        //            new Client_UIL
+        //            {
+        //                Nom = listeClients[i].ToString(),
+        //                Prenom = listeClients[i+1].ToString(),
+        //                Mail = listeClients[i+2].ToString(),
+        //                //IdContinent = int.Parse(listeDeClients[i + 1].ToString())
+        //            });
+        //    }
+        //    return View(listeDeClients);
+        //}
+
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            ArrayList listeClients = Repo.GetAllClients();
+            ArrayList listeClients = Repo.GetClientById(searchString);
             List<Client_UIL> listeDeClients = new List<Client_UIL>();
             for (int i = 0; i < listeClients.Count; i += 3)
             {
@@ -52,13 +71,15 @@ namespace ProjetFinal_UIL.Controllers
                     new Client_UIL
                     {
                         Nom = listeClients[i].ToString(),
-                        Prenom = listeClients[i+1].ToString(),
-                        Mail = listeClients[i+2].ToString(),
+                        Prenom = listeClients[i + 1].ToString(),
+                        Mail = listeClients[i + 2].ToString(),
                         //IdContinent = int.Parse(listeDeClients[i + 1].ToString())
                     });
             }
             return View(listeDeClients);
         }
+
+
 
 
 
@@ -79,7 +100,7 @@ namespace ProjetFinal_UIL.Controllers
         //}
 
 
-     
+
 
         //protected override void Dispose(bool disposing)
         //{

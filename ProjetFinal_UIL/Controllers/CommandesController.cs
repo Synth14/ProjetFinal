@@ -21,19 +21,19 @@ namespace ProjetFinal_UIL.Controllers
         {
             ArrayList listeCommandes = Repo.GetAllCommandes();
             List<Commande_UIL> listeDeCommandes = new List<Commande_UIL>();
-            for (int i = 0; i < listeCommandes.Count; i += 8)
+            for (int i = 0; i < listeCommandes.Count; i += 7)
             {
                 listeDeCommandes.Add(
                     new Commande_UIL
                     {
                         IdCommande = int.Parse(listeCommandes[i].ToString()),
-                        NbPlaceDemande = int.Parse(listeCommandes[i+1].ToString()),
-                        TotalCommande = int.Parse(listeCommandes[i+2].ToString()),
+                        IdVoyage = int.Parse(listeCommandes[i+1].ToString()),
+                        NbPlaceDemande = int.Parse(listeCommandes[i+2].ToString()),
                         Solvabilite = int.Parse(listeCommandes[i+3].ToString()),
-                        EtatCommande = int.Parse(listeCommandes[i+4].ToString()),
-                        IdVoyage = int.Parse(listeCommandes[i+5].ToString()),
+                        TotalCommande = int.Parse(listeCommandes[i+4].ToString()),
+                        EtatCommande = int.Parse(listeCommandes[i+5].ToString()),
                         IdClient = int.Parse(listeCommandes[i+6].ToString()),
-                        DateCommande = Convert.ToDateTime(listeCommandes[i+7].ToString()),
+                        //DateCommande = Convert.ToDateTime(listeCommandes[i+7].ToString()),
                     });
             }
             return View(listeDeCommandes);

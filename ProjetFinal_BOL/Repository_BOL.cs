@@ -65,6 +65,12 @@ namespace ProjetFinal_BOL
             return listeC;
         }
 
+        public ArrayList GetClientById(string searchString)
+        {
+            ArrayList listeC = Repo.GetClientsById(searchString);
+            return listeC;
+        }
+
         //public ArrayList GetClients()
         //{
         //    ArrayList alisteClient = Repo.GetClients();

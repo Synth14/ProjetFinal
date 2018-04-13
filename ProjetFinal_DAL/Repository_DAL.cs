@@ -34,7 +34,7 @@ namespace ProjetFinal_DAL
             //    //listePays.Add(liste[i].Pays);
 
             //}
-            return (ArrayList)liste;
+            return (ArrayList)(liste);
         }
 
         public ArrayList GetRegionsByPays(long IdC, long IdP)
@@ -57,10 +57,32 @@ namespace ProjetFinal_DAL
                 listeCommande.Add(liste[i].NbPlaceDemande);
                 listeCommande.Add(liste[i].Solvabilite);
                 listeCommande.Add(liste[i].TotalCommande);
+                listeCommande.Add(liste[i].EtatCommande);
                 listeCommande.Add(liste[i].IdClient);
+                //listeCommande.Add(liste[i].DateCommande);
             }
 
             return (listeCommande);
+        }
+
+        public ArrayList GetClientsById(string searchString)
+        {
+
+            var liste = Context.Clients.ToList();
+            var listeClientFiltree = new ArrayList();
+            for (int i = 0; i < liste.Count; i++)
+            {
+                listeClientFiltree.Add(liste[i].Nom);
+                listeClientFiltree.Add(liste[i].Prenom);
+                listeClientFiltree.Add(liste[i].Mail);
+            }
+
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    listeClientFiltree = listeClientFiltree.Where(s => s.Nom.Contains(searchString));
+            //}
+
+            return (listeClientFiltree);
         }
 
         public ArrayList PostVoyagesByPays(long idC, long idP)
