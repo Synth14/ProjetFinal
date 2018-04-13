@@ -26,7 +26,16 @@ namespace ProjetFinal_DAL
 
         public ArrayList GetPaysByContinents(long IdC)
         {
-            return new ArrayList { };
+            var liste = Context.Continents.Where(x => x.IdContinent == IdC).Select(x => x.Pays);
+            
+            //ArrayList listePays = new ArrayList();
+            //for(int i=0;i<liste.Count; i++)
+            //{
+            //    //listePays.Add(liste[i].IdContinent);
+            //    //listePays.Add(liste[i].Pays);
+
+            //}
+            return (ArrayList)(liste);
         }
 
         public ArrayList GetRegionsByPays(long IdC, long IdP)
@@ -36,6 +45,45 @@ namespace ProjetFinal_DAL
         public ArrayList PostVoyagesByContinent(long idC)
         {
             return new ArrayList { };
+        }
+
+        public ArrayList GetAllCommande()
+        {
+            var liste = Context.Commandes.ToList();
+            ArrayList listeCommande = new ArrayList();
+            for (int i = 0; i < liste.Count; i++)
+            {
+                listeCommande.Add(liste[i].IdCommande);
+                listeCommande.Add(liste[i].IdVoyage);
+                listeCommande.Add(liste[i].NbPlaceDemande);
+                listeCommande.Add(liste[i].Solvabilite);
+                listeCommande.Add(liste[i].TotalCommande);
+                listeCommande.Add(liste[i].EtatCommande);
+                listeCommande.Add(liste[i].IdClient);
+                //listeCommande.Add(liste[i].DateCommande);
+            }
+
+            return (listeCommande);
+        }
+
+        public ArrayList GetClientsById(string searchString)
+        {
+
+            var liste = Context.Clients.ToList();
+            var listeClientFiltree = new ArrayList();
+            for (int i = 0; i < liste.Count; i++)
+            {
+                listeClientFiltree.Add(liste[i].Nom);
+                listeClientFiltree.Add(liste[i].Prenom);
+                listeClientFiltree.Add(liste[i].Mail);
+            }
+
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    listeClientFiltree = listeClientFiltree.Where(s => s.Nom.Contains(searchString));
+            //}
+
+            return (listeClientFiltree);
         }
 
         public ArrayList PostVoyagesByPays(long idC, long idP)
@@ -57,13 +105,27 @@ namespace ProjetFinal_DAL
             return listeAl;
         }
 
-        public ArrayList GetClients()
+        //public ArrayList GetClients()
+        //{
+        //    var liste = Context.Clients.ToList();
+        //    // ...
+        //    ArrayList listeAlClient = new ArrayList();
+        //    //...
+        //    return listeAlClient;
+        //}
+
+        public ArrayList GetAllClient()
         {
             var liste = Context.Clients.ToList();
-            // ...
-            ArrayList listeAlClient = new ArrayList();
-            //...
-            return listeAlClient;
+            ArrayList listeClient = new ArrayList();
+            for (int i = 0; i < liste.Count; i++)
+            {
+                listeClient.Add(liste[i].Nom);
+                listeClient.Add(liste[i].Prenom);
+                listeClient.Add(liste[i].Mail);
+            }
+
+            return (listeClient);
         }
 
 

@@ -1,74 +1,69 @@
-﻿@model IEnumerable<ProjetFinal_DAL.Commande>
+﻿@model IEnumerable<Commande_UIL>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Gestion des commandes</h2>
-<div class="jumbotron">
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NbPlaceDemande)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Voyage.NbPlaceDisponible)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalCommande)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Solvabilite)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EtatCommande)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateCommande)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Client.Nom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Voyage.Titre)
-            </th>
+<h2>Index</h2>
 
-            <th></th>
-        </tr>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCommande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbPlaceDemande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCommande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Solvabilite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EtatCommande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdVoyage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdClient)
+        </th>
+        <th></th>
+    </tr>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NbPlaceDemande)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Voyage.NbPlaceDisponible)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalCommande)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Solvabilite)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EtatCommande)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateCommande)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Client.Nom)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Voyage.Titre)
-                </td>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCommande)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NbPlaceDemande)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCommande)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Solvabilite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EtatCommande)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdVoyage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdClient)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.IdCommande })
-                </td>
-            </tr>
-        }
-
-    </table>
-    </div>
+</table>
