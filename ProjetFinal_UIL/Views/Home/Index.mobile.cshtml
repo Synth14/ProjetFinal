@@ -1,0 +1,18 @@
+﻿@model IEnumerable<ProjetFinal_UIL.Models.Continent_UIL>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Accueil BoVoyage (version smartphone)</h2>
+
+@Html.
+<select>
+    <option value="" disabled selected>Continent</option>
+    @foreach (var item in Model)
+    {
+        <option>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </option>
+    }
+</select>

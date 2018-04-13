@@ -19,6 +19,7 @@ namespace ProjetFinal_BOL
                 case 1: return "<script>document.getElementById('btnSolva').style.backgroundColor = 'green';</script>"; //Client solvable
                 default: return "<script>document.getElementById('btnSolva').style.backgroundColor = 'red';</script>";//Client non solvable
             }
+           
 
         }
 
