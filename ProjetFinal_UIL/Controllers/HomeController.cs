@@ -1,9 +1,12 @@
-﻿using ProjetFinal_BOL;
+﻿
+using Microsoft.AspNet.Identity.Owin;
+using ProjetFinal_BOL;
 using ProjetFinal_UIL.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -75,7 +78,22 @@ namespace ProjetFinal_UIL.Controllers
         }
         public ActionResult Attribuer()
         {
-            MembershipUser membershipUser = new MembershipUser(providerName: "FinalDBContext2", name: "Georges", providerUserKey: null, email: "exemple@exemple.fr", passwordQuestion: null, comment: null, isApproved: true, isLockedOut: false, creationDate: DateTime.Now, lastLoginDate: DateTime.Now, lastActivityDate: DateTime.Now, lastPasswordChangedDate: DateTime.Now, lastLockoutDate: DateTime.Now);
+            RegisterViewModel model = new RegisterViewModel { Email = "superadmin@exemple.fr", Password = "P@ssw0rd"};
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
+            var UserManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var result =  UserManager.CreateAsync(user,model.Password );
+
+            RegisterViewModel model2 = new RegisterViewModel { Email = "commercial@exemple.fr", Password = "P@ssw0rd" };
+            var use2r = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var UserManager2 = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var result2 = UserManager.CreateAsync(user, model.Password);
+            RegisterViewModel model3 = new RegisterViewModel { Email = "mailing@exemple.fr", Password = "P@ssw0rd" };
+            var user3 = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var UserManager3 = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+            var result= UserManager.CreateAsync(user, model.Password);
+
             if (!Roles.RoleExists("SuperAdmin")) Roles.CreateRole("SuperAdmin");
             if (!Roles.RoleExists("Commercial")) Roles.CreateRole("Commercial");
             if (!Roles.RoleExists("Mailing")) Roles.CreateRole("Mailing");
@@ -84,14 +102,14 @@ namespace ProjetFinal_UIL.Controllers
            
           
 
-            if (!Roles.IsUserInRole("exemple@exemple.fr", "SuperAdmin"))
-                Roles.AddUserToRole("exemple@exemple.fr", "SuperAdmin");
+            if (!Roles.IsUserInRole(model.Email, "SuperAdmin"))
+                Roles.AddUserToRole(model.Email, "SuperAdmin");
                                    
-            if (!Roles.IsUserInRole("exemple1@exemple.fr", "Commercial"))
-                Roles.AddUserToRole("exemple1@exemple.fr", "Commercial");
+            if (!Roles.IsUserInRole(model2.Email, "Commercial"))
+                Roles.AddUserToRole(model2.Email, "Commercial");
                                  
-            if (!Roles.IsUserInRole("exemple2@exemple.fr", "Mailing"))
-                Roles.AddUserToRole("exemple2@exemple.fr", "Mailing");
+            if (!Roles.IsUserInRole(model3.Email, "Mailing"))
+                Roles.AddUserToRole(model3.Email, "Mailing");
             ViewBag.Message = "Iasyasdnn@live.fr est superadmin";
             return View();
         }
