@@ -19,6 +19,13 @@ namespace ProjetFinal_BOL
             return listeA;
         }
 
+        public ArrayList GetAllVoyages()
+        {
+            ArrayList listeV = Repo.GetAllVoyages();
+         
+            return listeV;
+        }
+
         public ArrayList GetAllCommandes()
         {
             ArrayList listeC = Repo.GetAllCommande();

@@ -48,6 +48,8 @@ namespace ProjetFinal_UIL.Controllers
         }
         public ActionResult Index()
         {
+            HomeIndexList ListDeList = new HomeIndexList();
+
             ArrayList listContinent = Repo.GetAllContinents();
             List<Continent_UIL> ListDeContinents = new List<Continent_UIL>();
 
@@ -60,9 +62,31 @@ namespace ProjetFinal_UIL.Controllers
                         IdContinent = int.Parse(listContinent[i + 1].ToString())
                     });
             }
-            return View(ListDeContinents);
+            ListDeList.ListContinent = ListDeContinents;
+
+
+            ArrayList listVoyages = Repo.GetAllVoyages();
+            List<Voyage_UIL> ListDeVoyages = new List<Voyage_UIL>();
+
+            for (int i = 0; i < listVoyages.Count; i += 5)
+            {
+                ListDeVoyages.Add(
+                    new Voyage_UIL
+                    {
+                        Titre = listVoyages[i].ToString(),
+                        DescCourte = listVoyages[i+1].ToString(),
+                        DescLongue = listVoyages[i+2].ToString(),
+                        Prix = float.Parse(listVoyages[i + 3].ToString()),
+                        photo = listVoyages[i+4].ToString(),
+                        
+                    });
+            }
+            ListDeList.ListVoyage = ListDeVoyages;
+
+            return View(ListDeList);
         }
 
+       
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
