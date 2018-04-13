@@ -1,18 +1,106 @@
-﻿@model IEnumerable<ProjetFinal_UIL.Models.Continent_UIL>
+﻿@model ProjetFinal_UIL.Models.HomeIndexList
 
 @{
-    ViewBag.Title = "View";
+    ViewBag.Title = "Index";
 }
 
-<h2>Accueil BoVoyage (version smartphone)</h2>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link href="~/Style/style.css" rel="stylesheet" />
 
-@Html.
-<select>
-    <option value="" disabled selected>Continent</option>
-    @foreach (var item in Model)
-    {
-        <option>
-            @Html.DisplayFor(modelItem => item.Nom)
-        </option>
-    }
-</select>
+<h2>Bienvenue sur le site BOVoyage (version mobile)</h2>
+
+<div class="col-sm-6 ">
+    <div class="w3-container w3-teal">
+        <h4 class="marginTop">Recherche par critères :</h4>
+    </div>
+    <div class="w3-container w3-light-gray">
+        <div class="container col-sm-4">
+            <select>
+                <option value="" disabled selected>Continent</option>
+                @foreach (var item in Model.ListContinent)
+                {
+                    <option>
+                        @Html.DisplayFor(modelItem => item.Nom)
+                    </option>
+                }
+            </select>
+        </div>
+
+        <div class="container col-sm-4">
+            <select>
+                <option value="" disabled selected>Pays</option>
+                @foreach (var item in Model.ListContinent)
+                {
+                    <option>
+                        @*@Html.DisplayFor(modelItem => item.Nom)*@
+                    </option>
+                }
+            </select>
+        </div>
+
+        <div class="container col-sm-4">
+            <select>
+                <option value="" disabled selected>Region</option>
+                @foreach (var item in Model.ListContinent)
+                {
+                    <option>
+                        @*@Html.DisplayFor(modelItem => item.Nom)*@
+                    </option>
+                }
+            </select>
+        </div>
+        <div class="text-center" id="rcorners">
+            <button class="w3-button w3-border w3-small">Rechercher</button>
+        </div>
+    </div>
+
+</div>
+
+@*<div id="slideshow">
+        <ul id="sContent">
+            <!--
+        -->
+            <li><img src="~/Content/img/PhotoPub.jpg" alt="Image bleue" /></li>
+            <!--
+        -->
+            <li><img src="~/Content/img/Photo2Pub.jpg" alt="Image verte" /></li>
+            <!--
+        -->
+            <li><img src="~/Content/img/Photo3Pub.jpg" alt="Image brune" /></li>
+
+        </ul>
+    </div>*@
+
+<div class="col-sm-6 arrondi">
+    <img src="~/Content/img/PhotoPub.jpg" style="width:100%" class="w3-animate-fading" />
+</div>
+
+
+@*<div class="w3-container w3-teal">
+        <h1>Header</h1>
+    </div>*@
+
+@*<div class="w3-container">
+        <p>The w3-container class can be used to display headers.</p>
+    </div>*@
+
+
+
+
+@foreach (var item in Model.ListVoyage)
+{
+
+    <div class="col-sm-6 col-md-4 marginTop">
+        <div class="thumbnail">
+            <img style="width:100%" class="arrondi taille" src="@Html.DisplayFor(modelItem => item.photo)">
+            <div class="caption">
+                <h3> @Html.DisplayFor(modelItem => item.Titre)</h3><p> @Html.DisplayFor(modelItem => item.DescLongue)</p><button class="btn btn-primary">@Html.DisplayFor(modelItem => item.Prix) €</button>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+
