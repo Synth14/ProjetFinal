@@ -84,15 +84,14 @@ namespace ProjetFinal_UIL.Controllers
             var result =  UserManager.CreateAsync(user,model.Password );
 
             RegisterViewModel model2 = new RegisterViewModel { Email = "commercial@exemple.fr", Password = "P@ssw0rd" };
-            var use2r = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var user2 = new ApplicationUser { UserName = model.Email, Email = model.Email };
             var UserManager2 = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var result2 = UserManager.CreateAsync(user2, model2.Password);
 
-            var result2 = UserManager.CreateAsync(user, model.Password);
             RegisterViewModel model3 = new RegisterViewModel { Email = "mailing@exemple.fr", Password = "P@ssw0rd" };
             var user3 = new ApplicationUser { UserName = model.Email, Email = model.Email };
             var UserManager3 = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
-            var result= UserManager.CreateAsync(user, model.Password);
+            var result3= UserManager.CreateAsync(user3, model3.Password);
 
             if (!Roles.RoleExists("SuperAdmin")) Roles.CreateRole("SuperAdmin");
             if (!Roles.RoleExists("Commercial")) Roles.CreateRole("Commercial");
