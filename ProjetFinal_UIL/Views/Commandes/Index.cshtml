@@ -4,71 +4,72 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Gestion des commandes</h2>
+<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 
-<div class="jumbotron">
-    <table class="table">
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCommande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbPlaceDemande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCommande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Solvabilite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EtatCommande)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdVoyage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdClient)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCommande)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NbPlaceDemande)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalCommande)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Solvabilite)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EtatCommande)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdVoyage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdClient)
-            </th>
-            <th></th>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCommande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NbPlaceDemande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCommande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Solvabilite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtatCommande)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdVoyage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClient)
+            </td>
+            <td>
+                <button id="btnSolva"></button>
+            </td>
         </tr>
+    }
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdCommande)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NbPlaceDemande)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalCommande)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Solvabilite)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EtatCommande)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdVoyage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IdClient)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
-        }
+</table>
+@*@section script
+<script>
+    $('#btnSolva').click(function () {
+        $.get("/Service/TestSolva", function (){
+        })
+    });
+</script>*@
 
-    </table>
-</div>
 
