@@ -31,7 +31,7 @@ namespace ProjetFinal_BOL
             ArrayList listeC = Repo.GetAllCommande();
             return listeC;
         }
-        public ArrayList GetAllPays([FromUri] long IdC)
+        public ArrayList GetPaysByContinent([FromUri] long IdC)
         {
             ArrayList listeB = Repo.GetPaysByContinents(IdC);
             List<Pays_BOL> listeP = new List<Pays_BOL>();

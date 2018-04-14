@@ -12,6 +12,8 @@ namespace ProjetFinal_DAL
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class FinalDBContext : DbContext
     {
@@ -32,5 +34,14 @@ namespace ProjetFinal_DAL
         public virtual DbSet<Region> Regions { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Voyage> Voyages { get; set; }
+    
+        public virtual ObjectResult<ListePaysProc_Result> ListePaysProc(Nullable<long> idContinent)
+        {
+            var idContinentParameter = idContinent.HasValue ?
+                new ObjectParameter("IdContinent", idContinent) :
+                new ObjectParameter("IdContinent", typeof(long));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ListePaysProc_Result>("ListePaysProc", idContinentParameter);
+        }
     }
 }

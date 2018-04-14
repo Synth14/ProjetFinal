@@ -41,15 +41,17 @@ namespace ProjetFinal_DAL
 
         public ArrayList GetPaysByContinents(long IdC)
         {
+            var liste = Context.ListePaysProc(IdC).ToList();
             ArrayList listePaysByContinentById = new ArrayList();
-            List<Pay> liste = null;
+           
             //List<Pay> liste = Context.Continents.Where(x => x.IdContinent == IdC).Select(x => x.Nom).ToList();
-            //ICI PROC STOCK
+        
             //Même traitement normalement
 
             for (int i = 0; i < liste.Count; i++)
             {
                 listePaysByContinentById.Add(liste[i].IdContinent);
+                listePaysByContinentById.Add(liste[i].IdPays);
                 listePaysByContinentById.Add(liste[i].Nom);
             }
             return listePaysByContinentById;
