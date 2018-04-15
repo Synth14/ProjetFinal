@@ -1,21 +1,23 @@
 ﻿@{
     ViewBag.Title = "Nous contacter :";
 }
-<h2>@ViewBag.Title</h2>
 
+<div class="jumbotron">
+    <h2>@ViewBag.Title</h2>
 
-<address>
-    BoVoyage<br />
-    324 rue des Chatons<br />
-    78015 Paris<br />
-    <abbr title="Phone">Tel:</abbr>
-    08.00.00.00.01
-</address>
+    <address>
+        BoVoyage<br />
+        324 rue des Chatons<br />
+        78015 Paris<br />
+        <abbr title="Phone">Tel:</abbr>
+        08.00.00.00.01
+    </address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
-<div>
-    @Html.ActionLink("Retour à la page d'accueil", "Index")
+    <address>
+        <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+        <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+    </address>
+    <div>
+        @Html.ActionLink("Retour à la page d'accueil", "Index")
+    </div>
 </div>
