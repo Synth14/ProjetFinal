@@ -26,10 +26,10 @@
         </select>
         <select class="form-control marginRight">
             <option value="" disabled selected>Pays</option>
-            @foreach (var item in Model.ListContinent)
+            @foreach (var item in Model.ListPays)
             {
                 <option>
-                    @*@Html.DisplayFor(modelItem => item.Nom)*@
+                    @Html.DisplayFor(modelItem => item.Nom)
                 </option>
             }
         </select>
@@ -49,7 +49,6 @@
 </div>
 
 <div class="col-sm-6 arrondi">
-    @*<img src="~/Content/img/PhotoPub.jpg" style="width:100%" class="w3-animate-fading" />*@
     <div class="slideshow-container">
 
         <div class="mySlides fade">
@@ -74,18 +73,6 @@
     </div>
 
 </div>
-
-
-@*<div class="w3-container w3-teal">
-        <h1>Header</h1>
-    </div>*@
-
-@*<div class="w3-container">
-        <p>The w3-container class can be used to display headers.</p>
-    </div>*@
-
-
-
 
 @foreach (var item in Model.ListVoyage)
 {

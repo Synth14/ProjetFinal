@@ -83,24 +83,24 @@ namespace ProjetFinal_UIL.Controllers
             }
             ListDeList.ListVoyage = ListDeVoyages;
 
-            //ArrayList listePays = Repo.GetPaysByContinent();
+            ArrayList listePays = Repo.GetPaysByContinent(1);
             //Manque la transmission de l'IdContinent sélectionné voila voila, sinon ça semble pouvoir peut être éventuellement fonctionner
 
-            //List<Pays_UIL> ListeDePays = new List<Pays_UIL>();
+            List<Pays_UIL> ListeDePays = new List<Pays_UIL>();
 
-            //for (int i = 0; i < listVoyages.Count; i += 3)
-            //{
-            //    ListeDePays.Add(
-            //        new Pays_UIL
-            //        {
-            //           IdContinent = long.Parse(listePays[i].ToString()),
-            //           IdPays = long.Parse(listePays[i+1].ToString()),
-            //           Nom = listePays[i+2].ToString()
-                       
+            for (int i = 0; i < listePays.Count; i += 3)
+            {
+                ListeDePays.Add(
+                    new Pays_UIL
+                    {
+                        IdContinent = long.Parse(listePays[i].ToString()),
+                        IdPays = long.Parse(listePays[i + 1].ToString()),
+                        Nom = listePays[i + 2].ToString()
 
-            //        });
-            //}
-            //ListDeList.ListPays = ListeDePays;
+
+                    });
+            }
+            ListDeList.ListPays = ListeDePays;
 
             return View(ListDeList);
         }
