@@ -1,5 +1,6 @@
 ﻿* {
     font-family: 'Roboto', sans-serif;
+    color:black;
 }
 
 body {
@@ -34,6 +35,9 @@ body .navbar {
 .marginRight {
     margin-left:15%;
 }
+.marginTop{
+    margin-top:15px;
+}
 @media screen and (max-width:470px) {
     .marginRight{
         margin-left:0%;
@@ -46,4 +50,7 @@ body .navbar {
     .marginRight {
         margin-left: 0%;
     }
+}
+.taille{
+    height:450px;!important
 }

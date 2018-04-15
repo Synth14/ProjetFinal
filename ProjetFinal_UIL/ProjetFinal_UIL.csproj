@@ -303,6 +303,7 @@
     <Content Include="Views\Home\Attribuer.cshtml" />
     <Content Include="Views\Home\Index.mobile.cshtml" />
     <Content Include="Views\Voyage\VoyageDetaille.cshtml" />
+    <Content Include="Views\Voyage\Paiement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -77,11 +77,11 @@
 @foreach (var item in Model.ListVoyage)
 {
 
-    <div class="col-sm-6 col-md-4 marginTop">
-        <div class="thumbnail">
-            <img style="width:100%" class="arrondi taille" src="@Html.DisplayFor(modelItem => item.photo)">
+    <div class="col-sm-6  col-md-4 marginTop">
+        <div class="taille thumbnail">
+            <img style="width:100%" class="arrondi " src="@Html.DisplayFor(modelItem => item.photo)">
             <div class="caption">
-                <h3> @Html.DisplayFor(modelItem => item.Titre)</h3><p> @Html.DisplayFor(modelItem => item.DescLongue)</p><button class="btn btn-primary" id="btnPrix" onclick="window.location.href='Voyage/VoyageDetaille'">@Html.DisplayFor(modelItem => item.Prix) €</button>
+                <h3> @Html.DisplayFor(modelItem => item.Titre)</h3><p> @Html.DisplayFor(modelItem => item.DescCourte)</p><button class="btn btn-primary" id="btnPrix" onclick="window.location.href='Voyage/VoyageDetaille'">@Html.DisplayFor(modelItem => item.Prix) €</button>
             </div>
         </div>
     </div>

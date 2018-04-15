@@ -18,6 +18,11 @@ namespace ProjetFinal_UIL.Controllers
         {
             return View();
         }
-        
+        public ActionResult Paiement()
+        {
+            return View();
+        }
+
+
     }
 }
