@@ -8,76 +8,52 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 <link href="~/Style/style.css" rel="stylesheet" />
 
+
+<div class="container" style="height:100px"></div>
+
 <h2>Bienvenue sur le site BOVoyage</h2>
-
 <div class="col-sm-6 ">
-    <div class="w3-container w3-teal">
-        <h4 class="marginTop">Recherche par critères :</h4>
-    </div>
-    <div class="w3-container w3-light-gray">
-        <div class="container col-sm-4">
-            <select>
-                <option value="" disabled selected>Continent</option>
-                @foreach (var item in Model.ListContinent)
-                {
-                    <option>
-                        @Html.DisplayFor(modelItem => item.Nom)
-                    </option>
-                }
-            </select>
-        </div>
-
-        <div class="container col-sm-4">
-            <select>
-                <option value="" disabled selected>Pays</option>
-                @foreach (var item in Model.ListContinent)
-                {
-                    <option>
-                        @*@Html.DisplayFor(modelItem => item.Nom)*@
-                    </option>
-                }
-            </select>
-        </div>
-
-        <div class="container col-sm-4">
-            <select>
-                <option value="" disabled selected>Region</option>
-                @foreach (var item in Model.ListContinent)
-                {
-                    <option>
-                        @*@Html.DisplayFor(modelItem => item.Nom)*@
-                    </option>
-                }
-            </select>
-        </div>
+    <div class="container" style="background-color:rgba(0, 148, 255,0.5);">
+        <h4 class="">Recherche par critères :</h4>
+        <select class="form-control" style="margin-left:15%;">
+            <option value="" disabled selected>Continent</option>
+            @foreach (var item in Model.ListContinent)
+            {
+                <option>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </option>
+            }
+        </select>
+        <select class="form-control" style="margin-left:15%;">
+            <option value="" disabled selected>Pays</option>
+            @foreach (var item in Model.ListContinent)
+            {
+                <option>
+                    @*@Html.DisplayFor(modelItem => item.Nom)*@
+                </option>
+            }
+        </select>
+        <select class="form-control" style="margin-left:15%;">
+            <option value="" disabled selected>Region</option>
+            @foreach (var item in Model.ListContinent)
+            {
+                <option>
+                    @*@Html.DisplayFor(modelItem => item.Nom)*@
+                </option>
+            }
+        </select>
         <div class="text-center" id="rcorners">
-            <button class="w3-button w3-border w3-small">Rechercher</button>
+            <button class="btn btn-info" style="margin-left:15%;">Rechercher</button>
         </div>
     </div>
-
 </div>
-
-@*<div id="slideshow">
-        <ul id="sContent">
-            <!--
-        -->
-            <li><img src="~/Content/img/PhotoPub.jpg" alt="Image bleue" /></li>
-            <!--
-        -->
-            <li><img src="~/Content/img/Photo2Pub.jpg" alt="Image verte" /></li>
-            <!--
-        -->
-            <li><img src="~/Content/img/Photo3Pub.jpg" alt="Image brune" /></li>
-
-        </ul>
-    </div>*@
 
 <div class="col-sm-6 arrondi">
     @*<img src="~/Content/img/PhotoPub.jpg" style="width:100%" class="w3-animate-fading" />*@
     <div class="slideshow-container">
 
         <div class="mySlides fade">
-            <img src="~/Content/img/PhotoPub.jpg" style="width:100%"/>
+            <img src="~/Content/img/PhotoPub.jpg" style="width:100%" />
         </div>
 
         <div class="mySlides fade">
@@ -85,7 +61,7 @@
         </div>
 
         <div class="mySlides fade">
-            <img src="~/Content/img/Photo3Pub.jpg" style="width:100%"/>
+            <img src="~/Content/img/Photo3Pub.jpg" style="width:100%" />
         </div>
 
     </div>
