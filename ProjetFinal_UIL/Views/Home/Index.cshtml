@@ -15,7 +15,7 @@
 <div class="col-sm-6 ">
     <div class="container" style="background-color:rgba(0, 148, 255,0.5);">
         <h4 class="">Recherche par critères :</h4>
-        <select class="form-control" style="margin-left:15%;">
+        <select class="form-control marginRight" >
             <option value="" disabled selected>Continent</option>
             @foreach (var item in Model.ListContinent)
             {
@@ -24,7 +24,7 @@
                 </option>
             }
         </select>
-        <select class="form-control" style="margin-left:15%;">
+        <select class="form-control marginRight">
             <option value="" disabled selected>Pays</option>
             @foreach (var item in Model.ListContinent)
             {
@@ -33,7 +33,7 @@
                 </option>
             }
         </select>
-        <select class="form-control" style="margin-left:15%;">
+        <select class="form-control marginRight">
             <option value="" disabled selected>Region</option>
             @foreach (var item in Model.ListContinent)
             {
@@ -43,7 +43,7 @@
             }
         </select>
         <div class="text-center" id="rcorners">
-            <button class="btn btn-info" style="margin-left:15%;">Rechercher</button>
+            <button class="btn btn-info marginRight">Rechercher</button>
         </div>
     </div>
 </div>
