@@ -4,14 +4,53 @@
     ViewBag.Title = "VoyageDetaille";
 }
 
-<h2>VoyageDetaille</h2>
 
-<div class="container" style="background-color:rgba(255, 255, 255,0.3); border-radius:5px;">
-    
-        <img class="marginTop" src="~/Content/PhotoVoyage/Chiwawa-mexique.jpg"/>
-        <div class="container marginTop" style="background-color:rgba(0,0,0,0.5); border-radius:5px;">
-            <h2>Voyage à Chiwawa, Mexique</h2>
-            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. </p>
-            <button class="btn btn-info" onclick="window.location.href='Voyage/Paiement'">Valider la commande : 1700€</button>
+
+
+    <div class="container" style="background-color:rgba(255,255,255,0.2); padding-top:30px;">
+        <div class="row">
+            <div class="col-xs-4 item-photo">
+                <img style="max-width:100%;" src="~/Content/PhotoVoyage/Chiwawa-mexique.jpg" />
+            </div>
+            <div class="col-xs-5" style="border:0px solid gray">
+                <!-- Datos del vendedor y titulo del producto -->
+                <h3>Voyage à Chiwawa, Mexique</h3>
+
+                <!-- Precios -->
+                <h6 class="title-price"><small>PRECIO OFERTA</small></h6>
+                <h3 style="margin-top:0px;">1700€</h3>
+
+                <!-- Detalles especificos del producto -->
+                <div class="section">
+                    
+                    <div>
+                        <div class="attr" style="width:25px;background:#5a5a5a;"></div>
+                        <div class="attr" style="width:25px;background:white;"></div>
+                    </div>
+                </div>
+      
+                <div class="section" style="padding-bottom:20px;">
+                    <div>
+                        <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                        <input value="1" />
+                        <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                    </div>
+                </div>
+
+                <!-- Botones de compra -->
+                <div class="section" style="padding-bottom:20px;">
+                    <button class="btn btn-success"  onclick="window.location.href='/Voyage/Paiement'"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Payer la commande</button>
+                
+                </div>
+            </div>
+
+            <div class="col-xs-9">
+          
+                <div style="width:100%;border-top:1px solid silver">
+                    <p style="padding:15px; font-weight:bold;">
+                            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>

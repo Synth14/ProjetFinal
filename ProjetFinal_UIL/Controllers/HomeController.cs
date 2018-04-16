@@ -74,11 +74,11 @@ namespace ProjetFinal_UIL.Controllers
                     new Voyage_UIL
                     {
                         Titre = listVoyages[i].ToString(),
-                        DescCourte = listVoyages[i+1].ToString(),
-                        DescLongue = listVoyages[i+2].ToString(),
+                        DescCourte = listVoyages[i + 1].ToString(),
+                        DescLongue = listVoyages[i + 2].ToString(),
                         Prix = float.Parse(listVoyages[i + 3].ToString()),
-                        photo = listVoyages[i+4].ToString(),
-                        
+                        photo = listVoyages[i + 4].ToString(),
+
                     });
             }
             ListDeList.ListVoyage = ListDeVoyages;
@@ -104,7 +104,7 @@ namespace ProjetFinal_UIL.Controllers
 
             return View(ListDeList);
         }
-                
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
@@ -112,43 +112,43 @@ namespace ProjetFinal_UIL.Controllers
         }
         public ActionResult Attribuer()
         {
-            //var UserManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            //RegisterViewModel model = new RegisterViewModel { Email = "superadmin@exemple.fr", Password = "P@ssw0rd"};
-            //RegisterViewModel model2 = new RegisterViewModel { Email = "commercial@exemple.fr", Password = "P@ssw0rd" };
-            //RegisterViewModel model3 = new RegisterViewModel { Email = "mailing@exemple.fr", Password = "P@ssw0rd" };
+            var UserManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            RegisterViewModel model = new RegisterViewModel { Email = "superadmin@exemple.fr", Password = "P@ssw0rd" };
+            RegisterViewModel model2 = new RegisterViewModel { Email = "commercial@exemple.fr", Password = "P@ssw0rd" };
+            RegisterViewModel model3 = new RegisterViewModel { Email = "mailing@exemple.fr", Password = "P@ssw0rd" };
 
-            //var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
-            //var user2 = new ApplicationUser { UserName = model2.Email, Email = model2.Email };
-            //var user3 = new ApplicationUser { UserName = model3.Email, Email = model3.Email };
+            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+            var user2 = new ApplicationUser { UserName = model2.Email, Email = model2.Email };
+            var user3 = new ApplicationUser { UserName = model3.Email, Email = model3.Email };
 
-            //var result =  UserManager.CreateAsync(user,model.Password );
-            //var result2 = UserManager.CreateAsync(user2, model2.Password);
-            //var result3 = UserManager.CreateAsync(user3, model3.Password);
+            var result = UserManager.CreateAsync(user, model.Password);
+            var result2 = UserManager.CreateAsync(user2, model2.Password);
+            var result3 = UserManager.CreateAsync(user3, model3.Password);
 
-            //if (!Roles.RoleExists("SuperAdmin")) Roles.CreateRole("SuperAdmin");
-            //if (!Roles.IsUserInRole(model.Email, "SuperAdmin"))
-            //    Roles.AddUserToRole(model.Email, "SuperAdmin");
+            if (!Roles.RoleExists("SuperAdmin")) Roles.CreateRole("SuperAdmin");
+            if (!Roles.IsUserInRole(model.Email, "SuperAdmin"))
+                Roles.AddUserToRole(model.Email, "SuperAdmin");
 
-            //if (!Roles.RoleExists("Commercial")) Roles.CreateRole("Commercial");
-            //if (!Roles.IsUserInRole(model2.Email, "Commercial"))
-            //    Roles.AddUserToRole(model2.Email, "Commercial");
+            if (!Roles.RoleExists("Commercial")) Roles.CreateRole("Commercial");
+            if (!Roles.IsUserInRole(model2.Email, "Commercial"))
+                Roles.AddUserToRole(model2.Email, "Commercial");
 
 
-            //if (!Roles.RoleExists("Mailing")) Roles.CreateRole("Mailing");
-            //if (!Roles.IsUserInRole(model3.Email, "Mailing"))
-            //    Roles.AddUserToRole(model3.Email, "Mailing");
-
-            if (!Roles.IsUserInRole("mailing@exemple.fr", "Mailing"))
-                Roles.AddUserToRole("mailing@exemple.fr", "Mailing");
-            if (!Roles.IsUserInRole("commercial@exemple.fr", "Commercial"))
-                Roles.AddUserToRole("commercial@exemple.fr", "Commercial");
-            if (!Roles.IsUserInRole("superadmin@exemple.fr", "SuperAdmin"))
-                Roles.AddUserToRole("superadmin@exemple.fr", "SuperAdmin");
+            if (!Roles.RoleExists("Mailing")) Roles.CreateRole("Mailing");
+            if (!Roles.IsUserInRole(model3.Email, "Mailing"))
+                Roles.AddUserToRole(model3.Email, "Mailing");
 
 
 
 
 
+
+            //if (!Roles.IsUserInRole("mailing@exemple.fr", "Mailing"))
+            //    Roles.AddUserToRole("mailing@exemple.fr", "Mailing");
+            //if (!Roles.IsUserInRole("commercial@exemple.fr", "Commercial"))
+            //    Roles.AddUserToRole("commercial@exemple.fr", "Commercial");
+            //if (!Roles.IsUserInRole("superadmin@exemple.fr", "SuperAdmin"))
+            //    Roles.AddUserToRole("superadmin@exemple.fr", "SuperAdmin");
 
 
 

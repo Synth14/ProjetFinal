@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Commande_UIL>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Gestion des commandes";
 }
-
-<h2>Index</h2>
+<div class="container" style="background-color:rgba(255,255,255,0.5);">
+<h2>Gestion des commandes</h2>
 
 
 <table class="table">
@@ -19,16 +19,13 @@
             @Html.DisplayNameFor(model => model.TotalCommande)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Solvabilite)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.EtatCommande)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IdVoyage)
+           <p>Solvabilité</p>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IdClient)
+            <p>Validation commande</p>
         </th>
         <th></th>
     </tr>
@@ -46,30 +43,17 @@
                 @Html.DisplayFor(modelItem => item.TotalCommande)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Solvabilite)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.EtatCommande)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdVoyage)
+                <button class="btn btn-info" id="btnSolva">X</button>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdClient)
-            </td>
-            <td>
-                <button id="btnSolva"></button>
+                <input class="form-check-input" type="checkbox" />
             </td>
         </tr>
     }
 
 </table>
-@*@section script
-<script>
-    $('#btnSolva').click(function () {
-        $.get("/Service/TestSolva", function (){
-        })
-    });
-</script>*@
-
-
+<input type="button" class="btn btn-info" value="Envoyer"/>
+</div>

@@ -2,13 +2,33 @@
 @{
     ViewBag.Title = "Paiement";
 }
-<div class="container"  style="background-color:rgba(255, 255, 255,0.3); border-radius:5px;">
-    <h2>Paiement</h2>
-   
-        <input class="form-control marginTop" type="text" required placeholder="Nom" />
-        <input class="form-control marginTop" type="text" required placeholder="Prénom" />
-        <input class="form-control marginTop" type="email" required placeholder="Email" />
-        <input class="form-control marginTop" type="text" required placeholder="N°CB" />
-        <input type="button" class="btn btn-info" valider onclick="alert('Merci, nous transmettons votre commande, vous recevrez un mail sous 48h vous confirmant sa validation');" value="Payer"/>
-   
-</div>
+
+
+
+<div class="container">
+    <div class="col-md-4"></div>
+    <div class="col-md-4" style="background-color:rgba(255,255,255,0.3); padding-bottom:20px;">
+        <div class="form-area">
+            <form role="form">
+                <br style="clear:both">
+                <h3 style="margin-bottom: 25px; text-align: center;">Paiement de votre commande</h3>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="subject" name="prenom" placeholder="Prénom" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id="mobile" name="cardNumber" placeholder="Numéro de carte" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                </div>
+                <button type="button" id="submit" valider onclick="alert('Merci, nous transmettons votre commande, vous recevrez un mail sous 48h vous confirmant sa validation');" name="submit" class="btn btn-primary pull-left">Payer</button>
+                <p class="btn btn-info pull-right">Montant : 1700€</p>
+            </form>
+        </div>
+    </div>
+    </div>

@@ -6,18 +6,20 @@
 
 <h2>Gestion Mailing</h2>
 
-<div class="jumbotron">
+
+<div class="container" style="background-color:rgba(255,255,255,0.5);">
     <p>Recherche par critères :</p>
     <form asp-controller="Movies" asp-action="Index">
         <p>
-            Continent: <input type="text" name="SearchString">
-            
+            Nom: <input type="text" name="SearchString">
+
             Date: <input type="text" name="SearchStringDate">
-                  <input type="submit" value="Filtrer" />
+            <input type="submit" value="Filtrer" />
         </p>
     </form>
 </div>
-<div class="jumbotron">
+
+<div class="container" style="background-color:rgba(255,255,255,0.5);">
     <table class="table" id="listTable">
         <tr>
             <th>
@@ -48,4 +50,4 @@
         }
 
     </table>
-    </div>
+</div>
